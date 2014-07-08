@@ -1,0 +1,1359 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly NvtlApiWrapper, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class NvtlApiWrapper.OmaStatusEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Byte state : Public
+    Byte status : Public
+    UInt16 extended : Public
+    UInt32 data IsLong : Public
+Class NvtlApiWrapper.OmaCapabilityStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Byte dm_capable : Public
+    Byte dm_enabled : Public
+    Byte prl_capable : Public
+    Byte prl_enabled : Public
+Class NvtlApiWrapper.ActivationInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 dwSize IsLong : Public
+    NvtlApiWrapper.ActivationType eType : Public
+    Byte bAsynchronousActivation : Public
+    System.ValueType szMDN SByte IsBoxed : Public
+    System.ValueType szMIN SByte IsBoxed : Public
+    System.ValueType szActivationCode SByte IsBoxed : Public
+    UInt16 dwHomeSID : Public
+    UInt32 dwPRLDataSize IsLong : Public
+    Byte* pPRLData : Public
+Class NvtlApiWrapper.ContactInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 dwIndex IsLong : Public
+    System.ValueType szContactName SByte IsBoxed : Public
+    System.ValueType szContactDetails SByte IsBoxed : Public
+Class NvtlApiWrapper.ContactSizeInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 dwMinIndex IsLong : Public
+    UInt32 dwMaxIndex IsLong : Public
+    UInt32 dwContactNameMax IsLong : Public
+    UInt32 dwContactDetailsMax IsLong : Public
+Class NvtlApiWrapper.VoiceMailInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Byte bVoiceMailActive : Public
+    UInt32 dwVoiceMailIndex IsLong : Public
+Class NvtlApiWrapper.SmsMessageStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt16 eSMSType : Public
+    UInt16 eState : Public
+    UInt16 index : Public
+    UInt16 data_len : Public
+    System.ValueType data Byte IsBoxed : Public
+Class NvtlApiWrapper.SmsMessageInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt16 index : Public
+    UInt16 eState : Public
+Class NvtlApiWrapper.GpsFixInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Double latitude : Public
+    Double longitude : Public
+    Int32 altitude IsLong : Public
+    Double horizontal_velocity : Public
+    Double vertical_velocity : Public
+    Double heading : Public
+    Double angle_uncertainty : Public
+    Double std_dev_uncertainty : Public
+    Double perpendicular_std_dev_uncertainty : Public
+    Double vertical_std_dev_uncertainty : Public
+    Int32 fix_type IsLong : Public
+    UInt32 timestamp IsLong : Public
+Class NvtlApiWrapper.GpsSatelliteInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Byte prn : Public
+    Byte elevation : Public
+    UInt16 azimuth : Public
+    UInt16 snr : Public
+    Byte location_valid : Public
+    Byte snr_valid : Public
+Class NvtlApiWrapper.GpsSatelliteConstellationStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 num_svs IsLong : Public
+    Int32 num_svs_detected IsLong : Public
+    NvtlApiWrapper.GpsSatelliteInfoStruct sv_info : Public
+Class NvtlApiWrapper.PDSMSessionInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    NvtlApiWrapper.PDSMSessionType mode : Public
+    Byte qosSessionTimeout : Public
+    UInt32 qosAccuracyThreshold : Public
+Class NvtlApiWrapper.DeviceDetail: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    NvtlApiWrapper.DeviceTechType eTechnology : Public
+    NvtlApiWrapper.DeviceFormFactorType eFormFactor : Public
+    System.ValueType szDescription SByte IsBoxed : Public
+    System.ValueType szPort SByte IsBoxed : Public
+    System.ValueType szFriendlyName SByte IsBoxed : Public
+Class NvtlApiWrapper.OSDeviceDetail: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    NvtlApiWrapper.DeviceTechType eTechnology : Public
+    NvtlApiWrapper.DeviceFormFactorType eFormFactor : Public
+    UInt16 vid : Public
+    UInt16 pid : Public
+    UInt64 sessionId : Public
+    System.ValueType szDescription SByte IsBoxed : Public
+    System.ValueType szModemPort SByte IsBoxed : Public
+    System.ValueType szStatusPort SByte IsBoxed : Public
+    System.ValueType szDiagPort SByte IsBoxed : Public
+    System.ValueType szGpsPort SByte IsBoxed : Public
+    System.ValueType szModemPortFriendlyName SByte IsBoxed : Public
+    System.ValueType szStatusPortFriendlyName SByte IsBoxed : Public
+    System.ValueType szDiagPortFriendlyName SByte IsBoxed : Public
+    System.ValueType szGpsPortFriendlyName SByte IsBoxed : Public
+    Int32 iNdisIndex IsLong : Public
+    System.ValueType szPriHardwareId SByte IsBoxed : Public
+    System.ValueType szSecHardwareId SByte IsBoxed : Public
+    System.ValueType szNdisHardwareId SByte IsBoxed : Public
+    System.ValueType szDriverVersion SByte IsBoxed : Public
+    System.ValueType szStatusPortInstanceId SByte IsBoxed : Public
+Class NvtlApiWrapper.NvtlEventStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 type IsLong : Public
+    UInt32 size IsLong : Public
+    Byte* buffer : Public
+Class NvtlApiWrapper.StandardEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 val IsLong : Public
+Class NvtlApiWrapper.SigStrEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.RoamingEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.DeviceStateEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.DormantEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.NetworkEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.ServerErrorEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.SmsEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.SmsSentEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.DeviceAddedEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.DeviceRemovedEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.ActivationEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.GpsEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.DeviceErrorEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.XtraStatuEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.XtraTimeSyncEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.DeviceAttachedEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.DeviceDetachedEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.MipErrorEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.GpsSmsFilterEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.ValueType val SByte IsBoxed : Public
+Class NvtlApiWrapper.GpsCommandErrorEvent: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :NvtlApiWrapper.StandardEvent
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.NvtlSdkEventFunc: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(ValueType SByte IsBoxed, NvtlEventType, UInt32 IsLong, StandardEvent IsByValue): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(ValueType SByte IsBoxed, NvtlEventType, UInt32 IsLong, StandardEvent IsByValue, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class NvtlApiWrapper.GPSEventXTRADownloadStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 flags : Public
+    UInt32 status : Public
+    UInt16 command : Public
+    UInt16 startGpsWeek : Public
+    UInt16 startGpsMinutes : Public
+    UInt16 validDurationHours : Public
+    System.ValueType xtra_server_primary SByte IsBoxed : Public
+    System.ValueType xtra_server_secondary SByte IsBoxed : Public
+    System.ValueType xtra_server_tertiary SByte IsBoxed : Public
+    UInt32 maxFilePartSize : Public
+    UInt32 maxFileSize : Public
+Class NvtlApiWrapper.GPSEventXTRATimeinfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 command : Public
+    UInt32 oneway_delay_failover_thresh : Public
+    System.ValueType xtra_server_primary SByte IsBoxed : Public
+    System.ValueType xtra_server_secondary SByte IsBoxed : Public
+    System.ValueType xtra_server_tertiary SByte IsBoxed : Public
+Class NvtlApiWrapper.NvtlEventCallback: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 user_data : Public
+    NvtlApiWrapper.NvtlSdkEventFunc event_func : Public
+Class NvtlApiWrapper.EfsFileInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 type IsLong : Public
+    UInt32 mode IsLong : Public
+    UInt32 size IsLong : Public
+    UInt32 nLink IsLong : Public
+    UInt32 aTime IsLong : Public
+    UInt32 mTime IsLong : Public
+    UInt32 cTime IsLong : Public
+    System.ValueType name SByte IsBoxed : Public
+Class NvtlApiWrapper.DeviceInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 dwSize IsLong : Public
+    UInt32 dwCurFWVersion IsLong : Public
+    NvtlApiWrapper.SourceBuildBaseType eBuildBase : Public
+    NvtlApiWrapper.ServiceProviderType eSrvProvider : Public
+    NvtlApiWrapper.DeviceTechType eTech : Public
+    NvtlApiWrapper.DeviceFormFactorType eFormFactor : Public
+    NvtlApiWrapper.DeviceStateType eState : Public
+    NvtlApiWrapper.DeviceModeType modeDevice : Public
+    NvtlApiWrapper.CallStatusType connStatus : Public
+    Byte bDeviceLocked : Public
+    Byte maskWDisable : Public
+    Byte subsysID : Public
+    System.ValueType szSoftwareVersion SByte IsBoxed : Public
+    System.ValueType szDeviceModel SByte IsBoxed : Public
+    System.ValueType szHardwareVersion SByte IsBoxed : Public
+    System.ValueType szDriverVersion SByte IsBoxed : Public
+    System.ValueType szMDN SByte IsBoxed : Public
+    System.ValueType szFID SByte IsBoxed : Public
+    System.ValueType szIMEI SByte IsBoxed : Public
+    System.ValueType szSMSC SByte IsBoxed : Public
+    System.ValueType szIMSI SByte IsBoxed : Public
+    System.ValueType szICCID SByte IsBoxed : Public
+    System.ValueType szMIN SByte IsBoxed : Public
+    UInt32 dwESN IsLong : Public
+    UInt32 dwPRLVersion IsLong : Public
+    UInt32 dwERIVersion IsLong : Public
+    UInt32 dwHomeSID IsLong : Public
+Class NvtlApiWrapper.NetworkInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 dwSize IsLong : Public
+    UInt32 dwSigStr IsLong : Public
+    UInt32 dwRSSI IsLong : Public
+    UInt32 dwEnsStatus IsLong : Public
+    Single fdBmSignal : Public
+    NvtlApiWrapper.DeviceServiceType eService : Public
+    NvtlApiWrapper.DeviceRoamStatusType eRoam : Public
+    NvtlApiWrapper.RoamIndicatorType eIndID : Public
+    Byte bDormant : Public
+    Byte bNewSMS : Public
+Class NvtlApiWrapper.NvtlTimeStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt16 wYear : Public
+    UInt16 wMonth : Public
+    UInt16 wDay : Public
+    UInt16 wHour : Public
+    UInt16 wMinute : Public
+    UInt16 wSeconds : Public
+    UInt16 wMilSecs : Public
+    UInt16 wUTCDiff : Public
+Class NvtlApiWrapper.MipDetailsStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Byte index : Public
+    Byte mn_ha_spi_set : Public
+    UInt32 mn_ha_spi IsLong : Public
+    Byte mn_aaa_spi_set : Public
+    UInt32 mn_aaa_spi IsLong : Public
+    Byte rev_tun_pref : Public
+    UInt32 home_addr IsLong : Public
+    UInt32 primary_ha_addr IsLong : Public
+    UInt32 secondary_ha_addr IsLong : Public
+Class NvtlApiWrapper.MipDetailsStructEx: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 mask : Public
+    Byte index : Public
+    UInt32 mn_ha_spi IsLong : Public
+    UInt32 mn_aaa_spi IsLong : Public
+    Byte rev_tun_pref : Public
+    UInt32 home_addr IsLong : Public
+    UInt32 primary_ha_addr IsLong : Public
+    UInt32 secondary_ha_addr IsLong : Public
+    Byte enabled : Public
+    System.ValueType ha_key SByte IsBoxed : Public
+    System.ValueType aaa_key SByte IsBoxed : Public
+    System.ValueType nai SByte IsBoxed : Public
+Class NvtlApiWrapper.MipParametersStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 mask : Public
+    Byte mode : Public
+    Byte retryLimit : Public
+    Byte retryInterval : Public
+    Byte reRegPeriod : Public
+    Byte reRegTraffic : Public
+    Byte HAAuthenticator : Public
+    Byte HA2002bis : Public
+Class NvtlApiWrapper.MipKeysStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Byte index : Public
+    System.ValueType mn_ha_shared_secret_length Byte IsBoxed : Public
+    System.ValueType mn_ha_shared_secret Byte IsBoxed : Public
+    System.ValueType mn_aaa_shared_secret_length Byte IsBoxed : Public
+    System.ValueType mn_aaa_shared_secret Byte IsBoxed : Public
+Class NvtlApiWrapper.EriInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 roam IsLong : Public
+    Int32 indicatorId IsLong : Public
+    Int32 iconId IsLong : Public
+    Int32 alertId IsLong : Public
+    System.ValueType version SByte IsBoxed : Public
+    System.ValueType data SByte IsBoxed : Public
+Class NvtlApiWrapper.SidNidInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt16 sid_count : Public
+    UInt16 nid_count : Public
+    UInt16 sid : Public
+    UInt16 nids : Public
+Class NvtlApiWrapper.ChannelParametersStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt16 primary_a : Public
+    UInt16 primary_b : Public
+    UInt16 secondary_a : Public
+    UInt16 secondary_b : Public
+Class NvtlApiWrapper.StringStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.FieldTestInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.QosSettingsStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 MaxSduSize IsLong : Public
+    Int32 DeliveryOfSDUError IsLong : Public
+    Int32 DeliveryOrder IsLong : Public
+    Int32 GuarBitDL IsLong : Public
+    Int32 GuarBitUL IsLong : Public
+    Int32 MaxBitDL IsLong : Public
+    Int32 MaxBitUL IsLong : Public
+    Int32 TrafficClass IsLong : Public
+    Int32 TransferDelay IsLong : Public
+    Int32 TrafficHandling IsLong : Public
+    System.ValueType ResErrorRatio SByte IsBoxed : Public
+    System.ValueType SDUErrorRatio SByte IsBoxed : Public
+Class NvtlApiWrapper.ApnSettingsStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.ValueType APN SByte IsBoxed : Public
+    Int32 PDPAddress IsLong : Public
+    Int32 PDPType IsLong : Public
+Class NvtlApiWrapper.ConnectionSettingsStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.ValueType ConnectionName SByte IsBoxed : Public
+    System.ValueType Username SByte IsBoxed : Public
+    System.ValueType Password SByte IsBoxed : Public
+    System.ValueType DialString SByte IsBoxed : Public
+    System.ValueType VpnProfile SByte IsBoxed : Public
+    Int32 UseVpn IsLong : Public
+    Int32 IPAddress IsLong : Public
+    Int32 PrimaryDNSAddress IsLong : Public
+    Int32 SecondaryDNSAddress IsLong : Public
+    Int32 PrimaryWINSAddress IsLong : Public
+    Int32 SecondaryWINSAddress IsLong : Public
+    Int32 AuthenticationType IsLong : Public
+Class NvtlApiWrapper.ConnectionStatusStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 status IsLong : Public
+    Int32 bytesIn IsLong : Public
+    Int32 bytesOut IsLong : Public
+    Int32 duration IsLong : Public
+    Int32 error IsLong : Public
+    System.ValueType ipAddress SByte IsBoxed : Public
+Class NvtlApiWrapper.FirmwareImageInfoStruct: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    SByte* path : Public
+    UInt32 firmwareID IsLong : Public
+    UInt32 technology IsLong : Public
+    UInt32 carrier IsLong : Public
+    UInt32 region IsLong : Public
+    UInt32 GPSCapability IsLong : Public
+Class NvtlApiWrapper.SdkWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    Void* m_session : Public
+  Methods:
+    IsLoaded(): PrivateScope, Public, HideBySig
+    GetSdkVersion(SByte*, UInt16): PrivateScope, Public, HideBySig
+    CreateSession(): PrivateScope, Public, HideBySig
+    HasValidSession(): PrivateScope, Public, HideBySig
+    SetSdkMode(NvtlSdkModeType, SByte*): PrivateScope, Public, HideBySig
+    ReleaseSession(): PrivateScope, Public, HideBySig
+    RefreshDeviceInfo(): PrivateScope, Public, HideBySig
+    AttachDevice(DeviceDetail): PrivateScope, Public, HideBySig
+    DetachDevice(): PrivateScope, Public, HideBySig
+    GetAvailableDevices(DeviceDetail, UInt32*): PrivateScope, Public, HideBySig
+    SetDeviceAccessKey(SByte*): PrivateScope, Public, HideBySig
+    RegisterEventCallback(NvtlEventCallback IsByValue): PrivateScope, Public, HideBySig
+    UnregisterEventCallback(NvtlEventCallback IsByValue): PrivateScope, Public, HideBySig
+    GetNetworkInfo(NetworkInfoStruct): PrivateScope, Public, HideBySig
+    GetDeviceInfo(DeviceInfoStruct): PrivateScope, Public, HideBySig
+    ReadContact(Int16, ContactInfoStruct): PrivateScope, Public, HideBySig
+    ReadMultipleContacts(UInt16, UInt16, ContactInfoStruct, UInt16*): PrivateScope, Public, HideBySig
+    WriteContact(ContactInfoStruct): PrivateScope, Public, HideBySig
+    GetContactSizeDetails(ContactSizeInfoStruct): PrivateScope, Public, HideBySig
+    GetPowerMode(UInt16*, Byte*): PrivateScope, Public, HideBySig
+    SetPowerMode(UInt16): PrivateScope, Public, HideBySig
+    RadioState(PropertyAction, UInt16*): PrivateScope, Public, HideBySig
+    Reset(): PrivateScope, Public, HideBySig
+    ConfigureLogging(SByte*, SdkLogLevelType, SdkLogOutputType): PrivateScope, Public, HideBySig
+    UnlockDevice(Byte, SByte*): PrivateScope, Public, HideBySig
+    SetAutoLock(Byte, SByte*): PrivateScope, Public, HideBySig
+    GetLockStatus(Int32*, Byte*): PrivateScope, Public, HideBySig
+    ChangeLockCode(SByte*, SByte*): PrivateScope, Public, HideBySig
+    NetworkPreference(PropertyAction, Byte*): PrivateScope, Public, HideBySig
+    NovaSpeedEnabled(PropertyAction, Byte*): PrivateScope, Public, HideBySig
+    AutoInstallEnabled(PropertyAction, Byte*): PrivateScope, Public, HideBySig
+    InternalMassStorageEnabled(PropertyAction, Byte*): PrivateScope, Public, HideBySig
+    RestoreToFactoryDefaults(SByte*): PrivateScope, Public, HideBySig
+    RestoreToFactoryDefaultsBasic(): PrivateScope, Public, HideBySig
+    IsLPMSupported(Byte*): PrivateScope, Public, HideBySig
+    GetRefurbInfo(Byte*, UInt32*, SByte*, UInt16): PrivateScope, Public, HideBySig
+    SetSystemPreferredHybridMode(PropertyAction, UInt16, UInt16, UInt16*, UInt16*): PrivateScope, Public, HideBySig
+    BandPreference(PropertyAction, Byte, BandPreferenceType*): PrivateScope, Public, HideBySig
+    GetTemperature(UInt16*): PrivateScope, Public, HideBySig
+    GetLifetimeTimer(UInt32*): PrivateScope, Public, HideBySig
+    GetDisplaySpeed(Byte, Double*): PrivateScope, Public, HideBySig
+    GetDataCounters(UInt32*, UInt32*): PrivateScope, Public, HideBySig
+    GetBatteryState(UInt16*, UInt16*): PrivateScope, Public, HideBySig
+    GetManufacturer(SByte*, UInt16*): PrivateScope, Public, HideBySig
+    GetDateTime(NvtlTimeStruct): PrivateScope, Public, HideBySig
+    GetEriInfo(EriInfoStruct): PrivateScope, Public, HideBySig
+    RoamPreference(PropertyAction, Byte, RoamPreferenceType*): PrivateScope, Public, HideBySig
+    IntlRoamPreference(PropertyAction, Byte*): PrivateScope, Public, HideBySig
+    MicroSDControl(PropertyAction, Byte*): PrivateScope, Public, HideBySig
+    LedControl(PropertyAction, Byte*): PrivateScope, Public, HideBySig
+    ReadSmsMsg(UInt16, SmsMessageStruct): PrivateScope, Public, HideBySig
+    SendSmsMsg(SmsMessageStruct): PrivateScope, Public, HideBySig
+    DeleteSmsMsg(UInt16): PrivateScope, Public, HideBySig
+    GetSmsList(SmsStateType, SmsMessageInfo, UInt16, UInt16*): PrivateScope, Public, HideBySig
+    SMSC(PropertyAction, SByte*, UInt16*): PrivateScope, Public, HideBySig
+    GetImsi(SByte*, UInt16*): PrivateScope, Public, HideBySig
+    GetIccid(SByte*, UInt16*): PrivateScope, Public, HideBySig
+    GetNetworkMCCMNC(SByte*, UInt16*): PrivateScope, Public, HideBySig
+    GetNetworkOperator(SByte*, UInt16*): PrivateScope, Public, HideBySig
+    SetNetworkOperator(UInt16, UInt16, UInt16, SByte*): PrivateScope, Public, HideBySig
+    GetNetworkOperatorList(SByte*, UInt16*): PrivateScope, Public, HideBySig
+    SendATCommand(SByte*, SByte*, SByte*, UInt32 IsLong): PrivateScope, Public, HideBySig
+    Band(PropertyAction, UInt32*): PrivateScope, Public, HideBySig
+    SendStoredSms(UInt16): PrivateScope, Public, HideBySig
+    SetSmsStorage(SByte*): PrivateScope, Public, HideBySig
+    GetContactStorage(UInt16*, UInt16*, SByte*, UInt16*): PrivateScope, Public, HideBySig
+    SetContactStorage(SByte*): PrivateScope, Public, HideBySig
+    WriteSmsMsg(SmsMessageStruct, UInt16*): PrivateScope, Public, HideBySig
+    IsMsgMemoryFull(Byte*): PrivateScope, Public, HideBySig
+    GetEnsInfo(UInt32*): PrivateScope, Public, HideBySig
+    GetMobileId(SByte*, UInt16*): PrivateScope, Public, HideBySig
+    GetMeid(SByte*, UInt16*): PrivateScope, Public, HideBySig
+    IsManualNetworkSelected(Byte*): PrivateScope, Public, HideBySig
+    DomainAttach(PropertyAction, UInt16*): PrivateScope, Public, HideBySig
+    GetEsnAsDecimal(SByte*, UInt16*): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct NvtlApiWrapper.DeviceTechType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceTechType DEV_NONE = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceTechType DEV_EVDO = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceTechType DEV_UMTS = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceTechType DEV_HSDPA = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceTechType DEV_EVDO_REVA = 9 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SourceBuildBaseType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SourceBuildBaseType SRC_BUILD_BASE_UNKNOWN = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SourceBuildBaseType SRC_BUILD_BASE_BLACKBIRD = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SourceBuildBaseType SRC_BUILD_BASE_RAPTOR = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SourceBuildBaseType SRC_BUILD_BASE_HSDPA = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SourceBuildBaseType SRC_BUILD_BASE_HSDPA_7_2 = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SourceBuildBaseType SRC_BUILD_BASE_HSDPA_3_6 = 5 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceMobModelType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceMobModelType DEV_MOB_MODEL_6500 = 153 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceMobModelType DEV_MOB_MODEL_6800 = 238 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceMobModelType DEV_MOB_MODEL_6800_65NM = 172 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceMobModelType DEV_MOB_MODEL_6085 = 119 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceMobModelType DEV_MOB_MODEL_HSDPA_XU870 = 209 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceMobModelType DEV_MOB_MODEL_HSDPA_U730 = 226 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceFormFactorType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceFormFactorType DEV_TYPE_PC_CARD = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceFormFactorType DEV_TYPE_MINI_PCI = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceFormFactorType DEV_TYPE_EXPRESS_CARD = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceFormFactorType DEV_TYPE_SM_BUS_MINI_PCI = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceFormFactorType DEV_TYPE_GOBI_MINI_PCI = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceFormFactorType DEV_TYPE_USB = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceFormFactorType DEV_TYPE_MIFI = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceFormFactorType DEV_TYPE_GOBI2_MINI_PCI = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceFormFactorType DEV_TYPE_VIA_USB = 8 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.ServiceProviderType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.ServiceProviderType SRV_PROVIDER_UNKNOWN = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ServiceProviderType SRV_PROVIDER_SPRINT = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ServiceProviderType SRV_PROVIDER_VERIZON = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ServiceProviderType SRV_PROVIDER_TELUS = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ServiceProviderType SRV_PROVIDER_BELL_MOBILITY = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ServiceProviderType SRV_PROVIDER_RADIO_FREE = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ServiceProviderType SRV_PROVIDER_MAX = 6 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceModeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceModeType DEV_MODE_MIN = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_POWER_OFF = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_FTM = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_OFFLINE = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_OFFLINE_A = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_OFFLINE_D = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_ONLINE = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_LPM = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_MAX = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_UNKNOWN = 99 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceModeType DEV_MODE_RESET = 100 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceLockStatusType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceLockStatusType DEV_UNLOCKED = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockStatusType DEV_LOCKED = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockStatusType DEV_NETWORK_LOCKED = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockStatusType DEV_PIN1_LOCKED = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockStatusType DEV_PIN2_LOCKED = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockStatusType DEV_PUK1_LOCKED = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockStatusType DEV_PUK2_LOCKED = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockStatusType DEV_SIM_FAILURE = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockStatusType DEV_AUTOLOCKED = 128 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceLockType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceLockType DEV_LOCK = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockType DEV_NET_LOCK = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockType DEV_PIN1_LOCK = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockType DEV_PIN2_LOCK = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockType DEV_PUK1_LOCK = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockType DEV_PUK2_LOCK = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceLockType DEV_AUTOLOCK = 6 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceStateType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_UNKNOWN = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_NOCARD = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_INITIALIZING = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_DISABLED = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_LOCKED = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_SEARCHING = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_IDLE = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_CONNECTING = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_AUTHENTICATING = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_CONNECTED = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_RESERVED_2 = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_ACTIVATION = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceStateType NW_DEVICE_STATE_NULL = 255 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceRoamStatusType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceRoamStatusType DEVICE_STATUS_HOME = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceRoamStatusType DEVICE_STATUS_ROAM = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceRoamStatusType DEVICE_STATUS_ROAM_FLASH = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceRoamStatusType DEVICE_STATUS_ERI = 3 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.RoamIndicatorType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.RoamIndicatorType ROAM_INDICATOR_OFF = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RoamIndicatorType ROAM_INDICATOR_ON = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RoamIndicatorType ROAM_INDICATOR_FLASH = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RoamIndicatorType ROAM_INDICATOR_CUSTOM_IMAGE_ON = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RoamIndicatorType ROAM_INDICATOR_CUSTOM_IMAGE_FLASH = 4 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceServiceType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_NONE = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_AMPS = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_IS95A = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_IS95B = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_GPRS = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_1XRTT = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_EVDO = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_UMTS = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_HSDPA = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_EDGE = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_EVDO_REVA = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_HSUPA = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceServiceType NW_SERVICE_HSPA_PLUS = 12 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceDisableActionType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceDisableActionType NW_WD_ACTION_HW_DISABLE = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceDisableActionType NW_WD_ACTION_SW_DISABLE = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceDisableActionType NW_WD_ACTION_TEMPRATURE_DISABLE = 2 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DeviceDisableMaskType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DeviceDisableMaskType NW_WD_MASK_HW_DISABLE = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceDisableMaskType NW_WD_MASK_SW_DISABLE = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DeviceDisableMaskType NW_WD_MASK_TEMPRATURE_DISABLE = 4 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.RoamPreferenceType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.RoamPreferenceType NW_ROAM_PREF_HOME = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RoamPreferenceType NW_ROAM_PREF_AFFIL = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RoamPreferenceType NW_ROAM_PREF_ROAM = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RoamPreferenceType NW_ROAM_PREF_ANY = 255 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.NetworkModePreference: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.NetworkModePreference NW_MODE_DIGITAL_PREF = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_DIGITAL_ONLY = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_ANALOG_PREF = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_ANALOG_ONLY = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_AUTOMATIC = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_E911 = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_HOME_ONLY = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_PCS_CDMA_ONLY = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_CELL_CDMA_ONLY = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_CDMA_ONLY = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_HDR_ONLY = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_CDMA_AMPS_ONLY = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_GPS_ONLY = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_GSM_ONLY = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NetworkModePreference NW_MODE_WCDMA_ONLY = 14 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.RatModePreference: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.RatModePreference NW_RAT_MODE_AUTO = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RatModePreference NW_RAT_MODE_GSM = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RatModePreference NW_RAT_MODE_WCDMA = 2 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.DisableEventSigType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.DisableEventSigType W_DISABLE_SIG_LPM = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.DisableEventSigType W_DISABLE_SIG_ONLINE_ATTEMPT = 1 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SysPrevType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SysPrevType PREV_CDMA_JSTD008 = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SysPrevType PREV_CDMA_95A = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SysPrevType PREV_CDMA_95A_TSB74 = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SysPrevType PREV_CDMA_95B_PHASE1 = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SysPrevType PREV_CDMA_95B_PHASE2 = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SysPrevType PREV_CDMA_2000_REL0 = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SysPrevType PREV_CDMA_2000_RELA = 7 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.PreferredModeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_DIGITAL_PREF = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_DIGITAL_ONLY = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_ANALOG_PREF = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_ANALOG_ONLY = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_AUTOMATIC = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_E911 = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_HOME_ONLY = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_PCS_CDMA_ONLY = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_CELL_CDMA_ONLY = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_CDMA_ONLY = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_HDR_ONLY = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_CDMA_AMPS_ONLY = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_GPS_ONLY = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_GSM_ONLY = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PreferredModeType NV_PREF_MODE_WCDMA_ONLY = 14 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SystemPreferenceType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SystemPreferenceType NV_SYS_PREF_A_ONLY = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SystemPreferenceType NV_SYS_PREF_B_ONLY = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SystemPreferenceType NV_SYS_PREF_HOME_ONLY = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SystemPreferenceType NV_SYS_PREF_STANDARD = 3 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.HdrProtocolType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.HdrProtocolType CFG_HDR_PROTOCOL_UNKNOWN = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.HdrProtocolType CFG_HDR_PROTOCOL_REV0 = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.HdrProtocolType CFG_HDR_PROTOCOL_REVA = 2 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.BandPreferenceType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.BandPreferenceType NV_BAND_PREF_CELL = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.BandPreferenceType NV_BAND_PREF_PCS = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.BandPreferenceType NV_BAND_PREF_AUTOMATIC = 65535 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.MipQcmipType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.MipQcmipType NV_MIP_QCMIP_MIP_DISABLED = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipQcmipType NV_MIP_QCMIP_MIP_PREFERRED = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipQcmipType NV_MIP_QCMIP_MIP_ONLY = 2 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.BATTERY_STATE: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.BATTERY_STATE BATTERY_POWERED = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.BATTERY_STATE BATTERY_EXTERNAL_POWER = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.BATTERY_STATE BATTERY_UNAVAILABLE = 2 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.OmaType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.OmaType OMA_TYPE_DM = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMA_TYPE_PRL = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMA_TYPE_HFA = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMA_TYPE_FUMO_QUERY = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMA_TYPE_FUMO_UPDATE = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMADI_TYPE_HFA = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMANI_TYPE_PRL = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMANI_TYPE_DM = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMA_TYPE_FUMO_UPDATE_NOW = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMA_TYPE_FUMO_UPDATE_LATER = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaType OMA_TYPE_FUMO_UPDATE_OK = 10 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.OmaState: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.OmaState OMA_DM_DISABLED = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState OMA_PRL_DISABLED = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState OMA_PRL_DM_DISABLED = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState OMA_IDLE = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState HFA_IN_PROGRESS = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState HFA_IN_RETRY = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState HFA_IDLE = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState CIDC_IN_PROGRESS = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState NIDC_IN_PROGRESS = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState CIPRL_IN_PROGRESS = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState NIPRL_IN_PROGRESS = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState ABORT_IN_PROGRESS = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState OMA_NULL_STATE = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState OMA_FUMO_DISABLED = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState FUMO_IN_PROGRESS = 14 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState FUMO_IDLE = 15 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaState OMA_STATE_ENUM_MAX = 15 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.OmaStatus: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.OmaStatus OMA_SUCCESS = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_NO_REASON = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_PROFILE_UNAVAILABLE = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_INVALID_CREDENTIALS = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_SERVER_UNREACHABLE = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_NETWORK_UNAVAILABLE = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_DM_DISABLED = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_PRL_DISABLED = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_PRL_DM_DISABLED = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_FEATURE_DM_DISABLED = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_FEATURE_PRL_DISABLED = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_NULL_STATUS = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_FEATURE_FUMO_DISABLED = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_FUMO_UPDATE_FAILED = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_ERR_FUMO_UPDATE_PACKAGE = 14 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaStatus OMA_STATUS_ENUM_MAX = 14 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.OmaExtStatus: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.OmaExtStatus OMA_ERR_EXT_PLACE_HOLDER = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus HFA_HEARTBEAT = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus HFA_RETRIES_LEFT = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus HFA_NOT_ALLOWED = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus OMA_EVENT_CB_FUNCTION = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus OMA_EVENT_NI_REQUESTED = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus OMA_FUMO_UPDL_IN_PROGRESS = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus OMA_FUMO_UPDL_TOTAL_SIZE = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus OMA_FUMO_UPDATE_PACKAGE_AVAILABLE = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus OMA_FUMO_UPDATE_PACKAGE_NOT_AVAILABLE = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus FUMO_RESET_AFTER_GET_UDP = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus FUMO_RESET_AFTER_PROGRAMMING = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus FUMO_NIFUMO_WAP_PUSH = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus FUMO_REPORT_UPDATE_STATUS = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaExtStatus OMA_ERR_EXT_NULL = 65535 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.OmaEvent: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.OmaEvent OMAEVENT_PRLMaxPRLSizeGetFunc = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_PRLMaxPRLSizeReplaceFunc = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_PRLPrefRoamListGetFunc = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_PRLPrefRoamListReplaceFunc = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_PRLPRLIDGetFunc = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_PRLPRLIDReplaceFunc = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_NAMCdmaNamGetFunc = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_NAMCdmaNamReplaceFunc = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_NAMMobDirNumGetFunc = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_NAMMobDirNumReplaceFunc = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1AuthAlgoAAAGetFunc = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1AuthAlgoAAAReplaceFunc = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1AuthAlgoHAGetFunc = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1AuthAlgoHAReplaceFunc = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1MobileIpAddressGetFunc = 14 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1MobileIpAddressReplaceFunc = 15 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1NAIGetFunc = 16 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1NAIReplaceFunc = 17 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1PasswordAAAGetFunc = 18 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1PasswordAAAReplaceFunc = 19 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1PasswordHAGetFunc = 20 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1PasswordHAReplaceFunc = 21 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1PriHAIpGetFunc = 22 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1PriHAIpReplaceFunc = 23 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1ReverseTunnelingGetFunc = 24 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1ReverseTunnelingReplaceFunc = 25 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1SecHAIpGetFunc = 26 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1SecHAIpReplaceFunc = 27 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1SpiAAAGetFunc = 28 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1SpiAAAReplaceFunc = 29 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1SpiHAGetFunc = 30 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_Profile1SpiHAReplaceFunc = 31 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.OmaEvent OMAEVENT_CBFuntion_MAX = 32 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.ActivationType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.ActivationType NW_ACTIVATE_AUTOMATIC = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationType NW_ACTIVATE_MANUAL = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationType NW_ACTIVATE_MANUAL_NORESET = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationType NW_ACTIVATE_MANUAL_NOACTIVATION_CODE = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationType NW_ACTIVATE_OVERRIDE_IOTA = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationType NW_ACTIVATE_OVERRIDE_OTASP = 5 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.ActivationStateType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_UNKNOWN = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_PRGMING_IN_PROGRESS = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_SPL_UNLOCK_OK = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_SPL_UNLOCK_FAILED = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_DLOAD_NAM_OK = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_DLOAD_NAM_FAILED = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_DLOAD_MDN_OK = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_DLOAD_MDN_FAILED = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_DLOAD_IMSI_OK = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_DLOAD_IMSI_FAILED = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_DLOAD_PRL_OK = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_DLOAD_PRL_FAILED = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_COMMIT_SUCCESSFUL = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_COMMIT_FAILED = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_ACTIVATION_SUCCESSFUL = 14 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_ACTIVATION_FAILED = 15 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_WAP_PUSH_IN_PROGRESS = 16 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_RETRY_ATTEMPT = 17 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ActivationStateType NW_ACT_STATUS_COUNT = 18 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.CopsModeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.CopsModeType COPS_MODE_AUTOMATIC = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CopsModeType COPS_MODE_MANUAL = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CopsModeType COPS_MODE_DEREGISTER = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CopsModeType COPS_MODE_SET_FORMAT = 3 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.CopsFormatType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.CopsFormatType COPS_FORMAT_LONG_ALPHANUMERIC = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CopsFormatType COPS_FORMAT_SHORT_ALPHANUMERIC = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CopsFormatType COPS_FORMAT_NUMERIC = 2 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.AccessTechType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.AccessTechType ACCESS_TECH_GSM = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.AccessTechType ACCESS_TECH_GSM_COMPACT = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.AccessTechType ACCESS_TECH_UTRAN = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.AccessTechType ACCESS_TECH_AUTOMATIC = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.AccessTechType ACCESS_TECH_NA = 4 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.CopsNetworkStatusType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.CopsNetworkStatusType COPS_NETWORK_STATUS_UNKNOWN = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CopsNetworkStatusType COPS_NETWORK_STATUS_AVAIAILABLE = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CopsNetworkStatusType COPS_NETWORK_STATUS_CURRENT = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CopsNetworkStatusType COPS_NETWORK_STATUS_FORBIDDEN = 3 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SMSMessageState: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SMSMessageState SMS_STATE_EMPTY = 60000 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSMessageState SMS_STATE_UNREAD = 60001 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSMessageState SMS_STATE_UNREAD_PRIORITY = 60002 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSMessageState SMS_STATE_READ = 60003 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSMessageState SMS_STATE_FORWARDED = 60004 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSMessageState SMS_STATE_REPLIED = 60005 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSMessageState SMS_STATE_SENDING = 60006 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSMessageState SMS_STATE_SENT = 60007 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSMessageState SMS_STATE_DELIVERED = 60008 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSMessageState SMS_STATE_FAILED_SEND = 60009 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SMSBoxEnum: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SMSBoxEnum SMSInbox = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSBoxEnum SMSOutbox = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SMSBoxEnum SMSSentbox = 2 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SmsStorageType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SmsStorageType SmsStorageHOST = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsStorageType SmsStorageSM = 1 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SmsStateType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SmsStateType NW_SMS_RECEIVED_UNREAD = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsStateType NW_SMS_RECEIVED_READ = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsStateType NW_SMS_SENT_NOT_DELIVERED = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsStateType NW_SMS_SENT = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsStateType NW_SMS_ALL = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsStateType NW_SMS_STATUS_UNKNOWN = 5 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SmsSendStatusType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SmsSendStatusType NW_SMS_SEND_SUCCESS = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsSendStatusType NW_SMS_SEND_NO_SERVICE = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsSendStatusType NW_SMS_SEND_INTERNAL_ERROR = 2 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SmsMessageType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SmsMessageType NW_SMS_TYPE_UNKNOWN = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsMessageType NW_SMS_TYPE_WMS = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsMessageType NW_SMS_TYPE_IS683 = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SmsMessageType NW_SMS_TYPE_PDU = 3 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.GpsModeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.GpsModeType NW_GPS_NOGPS = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsModeType NW_GPS_STANDALONE = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsModeType NW_GPS_MS_BASED = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsModeType NW_GPS_MS_ASSISTED = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsModeType NW_GPS_INTERNET_ASSISTED = 8 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.GpsSessionType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.GpsSessionType NW_GPS_LAST_FIX = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsSessionType NW_GPS_NEW_FIX = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsSessionType NW_CGPS_TRACK_INDEPENDENT_FIX = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsSessionType NW_GPS_CONTINUOUS_FIX = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsSessionType NW_GPS_CONSTANT_CONTINUOUS_FIX = 4 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.GpsEventType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.GpsEventType NW_GPS_INVALID_FIX = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsEventType NW_GPS_FIX_RECEIVED = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsEventType NW_GPS_STARTED = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsEventType NW_GPS_STOPPED = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsEventType NW_GPS_MSBASED_FAILURE = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsEventType NW_GPS_SUBSCRIPTION_FAILED = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsEventType NW_GPS_STANDALONE_FALLBACK = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsEventType NW_GPS_SESSION_END = 7 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.GpsSmartModeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.GpsSmartModeType NW_GPS_SMARTMODE_OFF = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsSmartModeType NW_GPS_SMARTMODE_MSBASED = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.GpsSmartModeType NW_GPS_SMARTMODE_STANDALONE = 2 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.NMEAOutputType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.NMEAOutputType NW_NMEA_OUTPUT_GPGGA = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NMEAOutputType NW_NMEA_OUTPUT_GPGSA = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NMEAOutputType NW_NMEA_OUTPUT_GPGSV = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NMEAOutputType NW_NMEA_OUTPUT_GPVTG = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NMEAOutputType NW_NMEA_OUTPUT_GPRMC = 16 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.PDSMSessionType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.PDSMSessionType NW_PDSM_SESSION_OPERATION_MIN = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PDSMSessionType NW_PDSM_SESSION_OPERATION_STANDALONE_ONLY = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PDSMSessionType NW_PDSM_SESSION_OPERATION_MSBASED = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PDSMSessionType NW_PDSM_SESSION_OPERATION_MSASSISTED = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PDSMSessionType NW_PDSM_SESSION_OPERATION_OPTIMAL_SPEED = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PDSMSessionType NW_PDSM_SESSION_OPERATION_OPTIMAL_ACCURACY = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PDSMSessionType NW_PDSM_SESSION_OPERATION_OPTIMAL_DATA = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PDSMSessionType NW_PDSM_SESSION_OPERATION_REF_POSITION = 7 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.NvtlSdkModeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.NvtlSdkModeType SdkModeLocal = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlSdkModeType SdkModeShared = 1 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.PropertyAction: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.PropertyAction PropGet = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PropertyAction PropSet = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PropertyAction PROP_GET = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.PropertyAction PROP_SET = 1 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.NvtlEventType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.NvtlEventType NW_EVENT_SIG_STR = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_ROAMING = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_DEVICE_STATE = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_DORMANT = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_NETWORK = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_SERVER_ERROR = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_POWER_SAVE_NOTIFY = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_LOG_PACKET = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_DIAG_PACKET = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_UNSOLICITED_AT = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_SMS = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_INCOMING_CALL = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_DEVICE_ADDED = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_DEVICE_REMOVED = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_ACTIVATION = 14 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_OMADM = 15 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_SMS_SEND_STATUS = 16 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_GPS = 17 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_DEVICE_ERROR = 18 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_GPS_XTRA_STATUS = 19 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_TIME_SYNC_STATUS = 20 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_DEVICE_ATTACHED = 21 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_DEVICE_DETACHED = 22 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_MIP_ERROR = 23 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_GPS_XTRA_DOWNLOAD_REQ = 24 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_GPS_XTRA_TIMEINFO_REQ = 25 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_GPS_XTRA_CMD_ERR = 26 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_GPS_XTRA_DOWNLOAD_STATUS = 27 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_GPS_SMS_FILTER = 28 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_GPS_SECURITY = 29 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventType NW_EVENT_GPS_CMD_ERROR = 30 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.RouterConfigItemIdType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.RouterConfigItemIdType ROUTER_CONFIG_ID_SSID_CURRENT = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RouterConfigItemIdType ROUTER_CONFIG_ID_SSID_OPEN = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RouterConfigItemIdType ROUTER_CONFIG_ID_SSID_SECURE = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RouterConfigItemIdType ROUTER_CONFIG_ID_SSID_TEMPORARY = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RouterConfigItemIdType ROUTER_CONFIG_ID_PROFILE_CURRENT = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.RouterConfigItemIdType ROUTER_CONFIG_ID_KEY_CURRENT = 6 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.CallStatusType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.CallStatusType CALL_STATUS_IDLE = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CallStatusType CALL_STATUS_CONNECTING = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CallStatusType CALL_STATUS_AUTHENTICATING = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CallStatusType CALL_STATUS_CONNECTED = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CallStatusType CALL_STATUS_DORMANT = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.CallStatusType CALL_STATUS_DISCONNECTING = 5 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SdkLogLevelType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SdkLogLevelType SdkLogLevelNone = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SdkLogLevelType SdkLogLevelError = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SdkLogLevelType SdkLogLevelWarning = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SdkLogLevelType SdkLogLevelInfo = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SdkLogLevelType SdkLogLevelDebug = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SdkLogLevelType SdkLogLevelAll = 5 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.SdkLogOutputType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.SdkLogOutputType SdkOutputNone = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SdkLogOutputType SdkOutputStdOut = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SdkLogOutputType SdkOutputFile = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SdkLogOutputType SdkOutputBoth = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.SdkLogOutputType SdkOutputTrace = 4 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.MipDetailMask: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_HOME_ADDRESS = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_PRI_HA_ADDRESS = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_SEC_HA_ADDRESS = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_HA_SPI = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_AAA_SPI = 16 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_REV_TUNNEL = 32 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_HA_KEY = 64 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_AAA_KEY = 128 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_NAI = 256 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipDetailMask MIP_DETAIL_ENABLED = 512 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.MipParametersMask: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.MipParametersMask MIP_PARAM_MODE = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipParametersMask MIP_PARAM_RETRY_LIMIT = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipParametersMask MIP_PARAM_RETRY_INTERVAL = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipParametersMask MIP_PARAM_RE_REG_PERIOD = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipParametersMask MIP_PARAM_RE_REG_TRAFFIC = 16 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipParametersMask MIP_PARAM_HA_AUTHENTICATOR = 32 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipParametersMask MIP_PARAM_HA2002BIS = 64 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.MipKeyStatusType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.MipKeyStatusType MIP_KEY_STATUS_SET = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipKeyStatusType MIP_KEY_STATUS_NOT_SET = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipKeyStatusType MIP_KEY_STATUS_MASS_NOT_SET = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.MipKeyStatusType MIP_KEY_STATUS_MHSS_NOT_SET = 5 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.field_test_field_evdo_e_type: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIN_EVDO = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_WARRANTY_DATE = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_SLOT_CYCLE_INDEX = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_CURRENT_NAM = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_AUTO_NAM = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_SPC_CHANGE_ENABLED = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_NAM_NAME = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_DIRECTORY_NUMBER = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_ACCOLC = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MCC = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MNC = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_CHANNEL_PRI_A = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_CHANNEL_PRI_B = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_CHANNEL_SEC_A = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_CHANNEL_SEC_B = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HOME_SID_TABLE = 14 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_TERM_REG_HOME_SID = 15 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_TERM_REG_FOREIGN_SID = 16 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_TERM_REG_FOREIGN_NID = 17 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_SYS_PREF_MODE = 18 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_PRL_VER = 19 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_DNS_PRI = 20 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_DNS_SEC = 21 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_PACKET_DIAL_STR = 22 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MDR_MODE = 23 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_DATA_SCRM = 24 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIP_HA_SPI = 25 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIP_REV_TUN = 26 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIP_HOME = 27 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIP_PRI_HA = 28 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIP_SEC_HA = 29 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIP_BEHAVIOR = 30 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIP_PRE_REG_TIMEOUT = 31 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIP_REG_RETRIES = 32 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_DMU_KEY_EXHG_INDICATOR = 33 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_NID = 34 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_FER = 35 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_RSSI = 36 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_ECIO = 37 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_CHANNEL = 38 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_LATITUDE = 39 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_LONGITUDE = 40 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_TX_POWER = 41 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_RX_POWER = 42 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_BAND_CLASS = 43 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_PREV = 44 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_PKT_ZONE_ID = 45 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_LAST_CALL_ERR = 46 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_SO_IN_USE = 47 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_CALL_STATE = 48 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_DORMANT_STATE = 49 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MAC_INDEX = 50 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_SUBNET_MASK = 51 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_COL_CODE = 52 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_UATI024 = 53 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_FIN_INFO_PN_OFFSET = 54 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_FIN_INFO_WALSH_CODES = 55 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_FIN_INFO_RSSI = 56 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_ACT_SET_COUNT = 57 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_ACT_SET_PN_OFFSET = 58 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_ACT_SET_ECIO = 59 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_NEB_SET_COUNT = 60 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_NEB_SET_PN_OFFSET = 61 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_NEB_SET_ECIO = 62 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_CAND_SET_COUNT = 63 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_CAND_SET_PN_OFFSET = 64 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_1X_CAND_SET_ECIO = 65 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_FIN_INFO_PN_OFFSET = 66 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_FIN_INFO_WALSH_CODES = 67 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_FIN_INFO_RSSI = 68 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_ACT_SET_COUNT = 69 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_ACT_SET_PN_OFFSET = 70 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_ACT_SET_ECIO = 71 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_ACT_SET_CHANNEL = 72 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_ACT_SET_BAND_CLASS = 73 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_NEB_SET_COUNT = 74 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_NEB_SET_PN_OFFSET = 75 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_NEB_SET_ECIO = 76 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_NEB_SET_CHANNEL = 77 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_NEB_SET_BAND_CLASS = 78 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_CAND_SET_COUNT = 79 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_CAND_SET_PN_OFFSET = 80 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_CAND_SET_ECIO = 81 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_CAND_SET_CHANNEL = 82 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_CAND_SET_BAND_CLASS = 83 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_SECTOR_ID = 84 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_EVDO_TEMPERATURE = 85 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_EVDO_PRI_INFO = 86 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_EVDO_AN_AAA_STATUS = 87 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_HDR_SESSION_STATE = 88 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MIP_AAA_SPI = 89 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_ACQ_SID = 90 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_evdo_e_type FT_MAX_EVDO = 91 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.field_test_field_umts_e_type: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.field_test_field_umts_e_type FT_MIN_UMTS = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_CALL_MANAGER_STATE = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_SYSTEM_MODE = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NAS_GMM_STATE = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NAS_GMM_SUBSTATE = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NAS_MM_STATE = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NAS_MM_SUBSTATE = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NAS_MM_UPDATE = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NAS_REGISTRATION_STATE = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_PLMN_SELECT_MODE = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_UE_OPERATION_MODE = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_PS_CALL_ID = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NSAPI_VALUE = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NETWORK_OPERATION_MODE = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_SERVICE_TYPE = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_SERVING_CELL_PLMN = 14 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_SERVING_CELL_LAI = 15 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_SERVING_CELL_RAI = 16 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NUM_OF_AVAILABLE_PLMN = 17 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_PLMN_1_TO_10 = 18 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_P_TMSI = 19 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_IMSI = 20 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_IMEI = 21 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_IMEI_SOFTWARE_VERSION = 22 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_QOS_CONNECTION_ID = 23 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_DELAY_CLASS = 24 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_RELIABILITY_CLASS = 25 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_PEAK_THROUGHPUT = 26 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_PRECEDENCE_CLASS = 27 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_MEAN_THROUGHPUT = 28 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_TRAFFIC_CLASS = 29 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_DELIVERY_ORDER = 30 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_DELIVERY_ERROR_SDU = 31 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_MAX_SDU_SIZE = 32 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_MIN_BIT_RATE_UL = 33 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_MIN_BIT_RATE_DL = 34 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_RESIDUAL_ERROR_RATIO = 35 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_TRANSFER_DELAY = 36 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_TRAFFIC_HANDLING_PRIORITY = 37 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_MAX_BIT_RATE_UL = 38 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_MAX_BIT_RATE_DL = 39 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_FDD_ACTIVE_SET_CELLS = 40 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_FDD_ACTIVE_SET_FREQ = 41 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_FDD_NEIGHBOR_SET_FREQ = 42 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_DOWNLINK_FREQ_1_TO_3 = 43 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_NEIGHBORS_PER_FREQ_1_TO_3 = 44 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_RRC_STATE = 45 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_CURRENT_RRC_PROCEDURE = 46 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_RRC_FAILURE_CAUSE = 47 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_PROTOCOL_ERROR_CAUSE = 48 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_HSDPA_TEMPERATURE = 49 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_SERVING_CELL_ID = 50 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_CELL_LAC = 51 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_RLC_BYTES_RX = 52 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.field_test_field_umts_e_type FT_MAX_UMTS = 53 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.ConnectionModeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.ConnectionModeType CONNECTION_MODE_ETHERNET_MANUAL = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ConnectionModeType CONNECTION_MODE_ETHERNET_AUTO = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ConnectionModeType CONNECTION_MODE_DIAL_UP = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ConnectionModeType CONNECTION_MODE_MAX = 3 : Public, Static, Literal, HasDefault
+Struct NvtlApiWrapper.ConnectionState: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.ConnectionState CONN_STATE_DISCONNECTED = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ConnectionState CONN_STATE_CONNECTING = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ConnectionState CONN_STATE_AUTHENTICATING = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ConnectionState CONN_STATE_CONNECTED = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.ConnectionState CONN_STATE_DISABLED = 4 : Public, Static, Literal, HasDefault
