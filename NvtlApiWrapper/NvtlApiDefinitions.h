@@ -7,7 +7,6 @@
 #if !defined (_NVTL_API_DEFS_H_)
 #define _NVTL_API_DEFS_H_
 
-
 /** \file
 SDK header file that contains most commonly used definitions and enumerations.
 */
@@ -230,8 +229,6 @@ SDK header file that contains most commonly used definitions and enumerations.
 
 #pragma pack(push, 1)
 
-namespace NvtlApiWrapper
-{
 /*******************************************************************
 Physical Device Types
 Types related to physicaal device technology and platform attributes
@@ -239,18 +236,18 @@ Types related to physicaal device technology and platform attributes
 
 /// \enum DeviceTechType
 /// This enum defines the available device technology types
-public enum class DeviceTechType
+typedef enum
 {
 	DEV_NONE		= 0,        /*!< Unkown device type */
 	DEV_EVDO		= 4,        /*!< Evdo device */
 	DEV_UMTS		= 7,	    /*!< UMTS device */
 	DEV_HSDPA		= 8,        /*!< HSPA device */    
 	DEV_EVDO_REVA	= 9,        /*!< Evdo REV-A device */
-};
+}DeviceTechType;
 
 /// \enum SourceBuildBaseType 
 /// This enum defines the base hardware platform
-public enum class SourceBuildBaseType
+typedef enum 
 {
 	SRC_BUILD_BASE_UNKNOWN	 = 0,   /*!< Place Holder */
 	SRC_BUILD_BASE_BLACKBIRD = 1,   /*!< Place Holder */
@@ -258,11 +255,11 @@ public enum class SourceBuildBaseType
 	SRC_BUILD_BASE_HSDPA	 = 3,   /*!< Place Holder */
 	SRC_BUILD_BASE_HSDPA_7_2 = 4,   /*!< Place Holder */
     SRC_BUILD_BASE_HSDPA_3_6 = 5,   /*!< Place Holder */
-};
+}SourceBuildBaseType;
 
 /// \enum DeviceMobModelType
 /// This enum defines the chipset model of the device
-public enum class DeviceMobModelType
+typedef enum
 {
 	DEV_MOB_MODEL_6500		    = 153,  /*!< Place Holder */
 	DEV_MOB_MODEL_6800		    = 238,  /*!< Place Holder */
@@ -270,12 +267,12 @@ public enum class DeviceMobModelType
 	DEV_MOB_MODEL_6085			= 119,  /*!< BLUE Device  */
 	DEV_MOB_MODEL_HSDPA_XU870	= 209,  /*!< Place Holder */
 	DEV_MOB_MODEL_HSDPA_U730	= 226,  /*!< Place Holder */
-};
+} DeviceMobModelType;
 
 
 /// \enum DeviceFormFactorType
 /// This enum defines the physical form factor of the device
-public enum class DeviceFormFactorType
+typedef enum 
 {
 	DEV_TYPE_PC_CARD			= 0,    /*!< Place Holder */
 	DEV_TYPE_MINI_PCI			= 1,    /*!< Place Holder */
@@ -286,7 +283,7 @@ public enum class DeviceFormFactorType
     DEV_TYPE_MIFI               = 6,    /*!< Place Holder */
 	DEV_TYPE_GOBI2_MINI_PCI		= 7,    /*!< Place Holder */
     DEV_TYPE_VIA_USB            = 8,    /*!< Place Holder */
-};
+} DeviceFormFactorType;
 
 #define IsGobi(ffactor)  ( (ffactor) == DEV_TYPE_GOBI_MINI_PCI || (ffactor) == DEV_TYPE_GOBI2_MINI_PCI )
 #define IsGobi1(ffactor) ( (ffactor) == DEV_TYPE_GOBI_MINI_PCI ) 
@@ -295,7 +292,7 @@ public enum class DeviceFormFactorType
 
 /// \enum ServiceProviderType
 /// For CDMA device this enum defines the carrier this device was originally provisioned for.
-public enum class ServiceProviderType
+typedef enum
 {
 	SRV_PROVIDER_UNKNOWN	= 0,        /*!< Unknown provider */
 	SRV_PROVIDER_SPRINT		= 1,        /*!< Sprint */
@@ -304,7 +301,7 @@ public enum class ServiceProviderType
 	SRV_PROVIDER_BELL_MOBILITY = 4,     /*!< Bell Mobility */
 	SRV_PROVIDER_RADIO_FREE = 5,        /*!< Radio Free */
 	SRV_PROVIDER_MAX,                   /*!< Place Holder */
-};
+}ServiceProviderType;
 /*******************************************************************
 End Physical Device Types
 ********************************************************************/
@@ -319,41 +316,39 @@ Types related to device and network state
 
 /// \enum DeviceModeType
 /// This enum defines values for the power mode of the device.
-
-
-public enum class DeviceModeType
+typedef enum
 {
-	DEV_MODE_MIN = 0,    /*!< Place holder */
-	DEV_MODE_POWER_OFF = 0,    /*!< <tt><b>(not used)</b></tt> */
-	DEV_MODE_FTM = 1,    /*!< Offline Factory Test Mode */
-	DEV_MODE_OFFLINE = 2,    /*!< <tt><b>(not used)</b></tt> */
-	DEV_MODE_OFFLINE_A = 3,    /*!< <tt><b>(not used)</b></tt> Offline Analog Mode for legacy networks */
-	DEV_MODE_OFFLINE_D = 4,	/*!< Offline Digital mode */
-	DEV_MODE_ONLINE = 5,   	/*!< Online mode; in this mode, the mobile can acquire the system and make calls */
-	DEV_MODE_LPM = 6,    /*!< Low Power mode; in this mode, the device is disabled and will be in least power consumption and will neither attempt any acquisitions nor be on a system */
+	DEV_MODE_MIN		= 0,    /*!< Place holder */
+	DEV_MODE_POWER_OFF  = 0,    /*!< <tt><b>(not used)</b></tt> */
+	DEV_MODE_FTM		= 1,    /*!< Offline Factory Test Mode */
+	DEV_MODE_OFFLINE	= 2,    /*!< <tt><b>(not used)</b></tt> */
+	DEV_MODE_OFFLINE_A	= 3,    /*!< <tt><b>(not used)</b></tt> Offline Analog Mode for legacy networks */
+	DEV_MODE_OFFLINE_D	= 4,	/*!< Offline Digital mode */
+	DEV_MODE_ONLINE		= 5,   	/*!< Online mode; in this mode, the mobile can acquire the system and make calls */
+	DEV_MODE_LPM		= 6,    /*!< Low Power mode; in this mode, the device is disabled and will be in least power consumption and will neither attempt any acquisitions nor be on a system */
 	DEV_MODE_MAX,               /*!< Place Holder */
-	DEV_MODE_UNKNOWN = 99,   /*!< Unknown mode */
-	DEV_MODE_RESET = 100,  /*!< Resets the device if currently in offline mode */
-};
+	DEV_MODE_UNKNOWN	= 99,   /*!< Unknown mode */
+	DEV_MODE_RESET		= 100,  /*!< Resets the device if currently in offline mode */
+} DeviceModeType;
 
 /// \enum DeviceLockStatusType
 /// This enum defines values for current lock status of the device
-public enum class DeviceLockStatusType
+typedef enum 
 {
-	DEV_UNLOCKED = 0,	/*!< Device is not locked */
-	DEV_LOCKED = 1,	/*!< <tt><b>\<CDMA/EVDO devices only\></b></tt> The device is locked */
-	DEV_NETWORK_LOCKED = 2,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The device is network locked. This means that the device disallows use of the particular SIM that is inserted.*/
-	DEV_PIN1_LOCKED = 3,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The SIM is PIN locked. PIN number is required to unlock the SIM. */
-	DEV_PIN2_LOCKED = 4,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The SIM is PIN2 locked. PIN2 number is required to unlock the SIM. */
-	DEV_PUK1_LOCKED = 5,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The SIM is PUK locked. PUK code is required to unlock the SIM */
-	DEV_PUK2_LOCKED = 6,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The SIM is PUK2 locked. PUK2 code is required to unlock the SIM */
-	DEV_SIM_FAILURE = 7,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> Failure in communicating with the SIM */
-	DEV_AUTOLOCKED = 0x80 	/*!< <tt><b>\<not used\></b></tt> */
-};
+	DEV_UNLOCKED		= 0,	/*!< Device is not locked */
+	DEV_LOCKED			= 1,	/*!< <tt><b>\<CDMA/EVDO devices only\></b></tt> The device is locked */
+	DEV_NETWORK_LOCKED	= 2,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The device is network locked. This means that the device disallows use of the particular SIM that is inserted.*/
+	DEV_PIN1_LOCKED		= 3,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The SIM is PIN locked. PIN number is required to unlock the SIM. */
+	DEV_PIN2_LOCKED		= 4,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The SIM is PIN2 locked. PIN2 number is required to unlock the SIM. */
+	DEV_PUK1_LOCKED		= 5,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The SIM is PUK locked. PUK code is required to unlock the SIM */
+	DEV_PUK2_LOCKED		= 6,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> The SIM is PUK2 locked. PUK2 code is required to unlock the SIM */
+	DEV_SIM_FAILURE		= 7,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> Failure in communicating with the SIM */
+	DEV_AUTOLOCKED		= 0x80 	/*!< <tt><b>\<not used\></b></tt> */
+} DeviceLockStatusType;
 
 /// \enum DeviceLockType
 /// This enum defines values for the type of lock currently applied on the device
-public enum class DeviceLockType
+typedef enum 
 {
 	DEV_LOCK		= 0,	/*!< <tt><b>\<CDMA/EVDO devices only\></b></tt> Unlock the device */
 	DEV_NET_LOCK	= 1,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> Unlock Network Lock */
@@ -362,11 +357,11 @@ public enum class DeviceLockType
 	DEV_PUK1_LOCK	= 4,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> Unlock PUK Lock */
 	DEV_PUK2_LOCK	= 5,	/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> Unlock PUK2 Lock */
 	DEV_AUTOLOCK	= 6		/*!< <tt><b>\<UMTS and HSDPA devices only\></b></tt> Unlock Auto-Lock */
-} ;
+} DeviceLockType;
 
 /// \enum DeviceStateType
 /// This enum defines values for the current working state of the device
-public enum class DeviceStateType
+typedef enum
 {
     NW_DEVICE_STATE_UNKNOWN         = 0,  /*!< The state of device cannot be determined. Usually sent during startup of the SDK. */
     NW_DEVICE_STATE_NOCARD          = 1,  /*!< No device has been detected */
@@ -382,34 +377,34 @@ public enum class DeviceStateType
     NW_DEVICE_STATE_RESERVED_2      = 10, /*!< <tt><b>(not used)</b></tt> */
     NW_DEVICE_STATE_ACTIVATION      = 11, /*!< <tt><b>(not used)</b></tt> */
     NW_DEVICE_STATE_NULL            = 0xFF /*!< <tt><b>(not used)</b></tt> */
-};
+}DeviceStateType;
 
 /// \enum DeviceRoamStatusType
 /// This enum define svalues for the Roaming Stauts of the device.
-public enum class DeviceRoamStatusType
+typedef enum
 {
 	DEVICE_STATUS_HOME		 = 0,	/*!< The device is currently on the home network */
 	DEVICE_STATUS_ROAM		 = 1,	/*!< The device is currently roaming away from the home network */
 	DEVICE_STATUS_ROAM_FLASH = 2,	/*!< The device is currently roaming away from the home network and the connection manager should flash the roaming indication icon */
 	DEVICE_STATUS_ERI		 = 3	/*!< The device is currently roaming away from the home network and the connection manager should follow the appropriate rules based
 										* on the ERI (Extended Roaming Indicator) information. */
-};
+} DeviceRoamStatusType;
 
 /// \enum RoamIndicatorType
 /// <tt><b>\<CDMA/EVDO devices only\></b></tt>
 /// \n This enum defines values for roaming indication icon's index
-public enum class RoamIndicatorType
+typedef enum
 {
 	ROAM_INDICATOR_OFF					= 0,    /*!< Roaming indicator should be off */
 	ROAM_INDICATOR_ON					= 1,    /*!< Roaming indicator shoudd be on */
 	ROAM_INDICATOR_FLASH				= 2,    /*!< Roaming indicator should be flashing */    
 	ROAM_INDICATOR_CUSTOM_IMAGE_ON		= 3,    /*!< Custom roaming indicator image should be on*/
 	ROAM_INDICATOR_CUSTOM_IMAGE_FLASH	= 4     /*!< Custom roaming indicator image should be flashing */
-};
+} RoamIndicatorType;
 
 /// \enum DeviceServiceType
 /// This enum defines the type of Network Service that the device is attached to.
-public enum class DeviceServiceType
+typedef enum
 {
 	NW_SERVICE_NONE = 0,	/*!< No network */
 	NW_SERVICE_AMPS,		/*!< Network Service type AMPS (Advanced Mobile Phone Service) */
@@ -424,40 +419,38 @@ public enum class DeviceServiceType
 	NW_SERVICE_EVDO_REVA,	/*!< Network Service type EV-DO REV A */
 	NW_SERVICE_HSUPA,		/*!< Network Service type HSUPA (High Speed Uplink Packet Access) */
 	NW_SERVICE_HSPA_PLUS,	/*!< Network Service type HSPA+ (Evovled High Speed Packet Access) */
-};
+} DeviceServiceType;
 
 /// \enum DeviceDisableActionType
 /// This enum defines values that identify the cause for why a device is disabled or in Low Power Mode. 
-public enum class DeviceDisableActionType
+typedef enum
 {
     NW_WD_ACTION_HW_DISABLE			= 0,    /*!< Place hodler */
     NW_WD_ACTION_SW_DISABLE			= 1,    /*!< Place hodler */
     NW_WD_ACTION_TEMPRATURE_DISABLE = 2,    /*!< Place hodler */
-};
+} DeviceDisableActionType;
 
 /// \enum DeviceDisableMaskType
 /// This enum defines values that identify the cause for why a device is disabled or in Low Power Mode.
-public enum class DeviceDisableMaskType
-{
+typedef enum{
     NW_WD_MASK_HW_DISABLE		  = 0x0001,	/*!< The hardware control switch is turned off */
     NW_WD_MASK_SW_DISABLE		  = 0x0002,	/*!< The device is software disabled */
     NW_WD_MASK_TEMPRATURE_DISABLE = 0x0004,	/*!< The device is disabled because it has reached unsafe temperature levels */
-};
+} DeviceDisableMaskType;
 
 /// \enum RoamPreferenceType
 /// This enum defines values for the roam preferences for the device.
-public enum class RoamPreferenceType
-{
+typedef enum{
     NW_ROAM_PREF_HOME	= 1,	/*!< Home only */
 	NW_ROAM_PREF_AFFIL	= 3,	/*!< Affilated networks only */
 	NW_ROAM_PREF_ROAM	= 6,	/*!< Roam Only */
 	NW_ROAM_PREF_ANY	= 255	/*!< Automatic */
-};
+}RoamPreferenceType;
 
 /// \enum NetworkModePreference
 /// <tt><b>\<CDMA/EVDO devices only\></b></tt>
 /// \n This enum defines values for the preferred network mode
-public enum class NetworkModePreference
+typedef enum
 { 
     NW_MODE_DIGITAL_PREF          = 0,  /*!< CDMA then Analog */
     NW_MODE_DIGITAL_ONLY          = 1,  /*!< CDMA only */
@@ -474,25 +467,25 @@ public enum class NetworkModePreference
     NW_MODE_GPS_ONLY              = 12, /*!< Place hodler */
     NW_MODE_GSM_ONLY              = 13, /*!< Restrict to GSM only */
     NW_MODE_WCDMA_ONLY            = 14, /*!< Restrict to WCDMA only */
-};
+}NetworkModePreference;
 
 /// \enum RatModePreference
 /// <tt><b>\<UMTS/HSPA devices only\></b></tt>
 /// \n This enum defines values for the preferred radio access technology (RAT) mode
-public enum class RatModePreference
+typedef enum
 {
     NW_RAT_MODE_AUTO    = 0,
     NW_RAT_MODE_GSM     = 1,
     NW_RAT_MODE_WCDMA  = 2,
-};
+}RatModePreference;
 
 /// \enum DisableEventSigType
 /// This enum is used internally
-public enum class DisableEventSigType
+typedef enum 
 {
 	W_DISABLE_SIG_LPM			 = 0,   /*!< Place hodler */
 	W_DISABLE_SIG_ONLINE_ATTEMPT = 1    /*!< Place hodler */
-} ;
+} DisableEventSigType;
 /*******************************************************************
 END State and Network related types
 ********************************************************************/
@@ -505,7 +498,7 @@ Types related to EVDO settings
 /// \enum SysPrevType
 /// <tt><b>\<CDMA/EVDO devices only\></b></tt> \n
 /// This enum defines values for the Protocol Revision (PREV) preference.
-public enum class SysPrevType
+typedef enum
 {
 	PREV_CDMA_JSTD008		= 1,	/*!< PREV JSTD008 */
 	PREV_CDMA_95A			= 2,	/*!< <tt><b>(not used)</b></tt> */
@@ -514,12 +507,12 @@ public enum class SysPrevType
 	PREV_CDMA_95B_PHASE2	= 5,	/*!< <tt><b>(not used)</b></tt> */
 	PREV_CDMA_2000_REL0		= 6,	/*!< PREV REL0 */
 	PREV_CDMA_2000_RELA		= 7		/*!< <tt><b>(not used)</b></tt> */
-} ;
+} SysPrevType;
 
 /// \enum PreferredModeType
 /// <tt><b>\<CDMA/EVDO devices only\></b></tt> \n
 /// This enum defines values for the preferred network mode.
-public enum class PreferredModeType
+typedef enum
 {
 	NV_PREF_MODE_DIGITAL_PREF	= 0,	/*!< CDMA then Analog */
 	NV_PREF_MODE_DIGITAL_ONLY	= 1,	/*!< CDMA only */
@@ -536,56 +529,55 @@ public enum class PreferredModeType
 	NV_PREF_MODE_GPS_ONLY		= 12,   /*!< Place hodler */
 	NV_PREF_MODE_GSM_ONLY		= 13,   /*!< Place hodler */
 	NV_PREF_MODE_WCDMA_ONLY		= 14    /*!< Place hodler */
-};
+} PreferredModeType;
 
 /// \enum SystemPreferenceType
 /// This enum defines values for system preference
-public enum class SystemPreferenceType
+typedef enum
 {
 	NV_SYS_PREF_A_ONLY		= 0,	/*!< System A only */
 	NV_SYS_PREF_B_ONLY		= 1,	/*!< System B only */
     NV_SYS_PREF_HOME_ONLY	= 2,	/*!< Home only */
     NV_SYS_PREF_STANDARD	= 3		/*!< Home preferred */    
-};
+}SystemPreferenceType;
 
 /// \enum HdrProtocolType
 /// <tt><b>\<CDMA/EVDO devices only\></b></tt> \n
 /// This enum defines values for the type of HDR protocol. 
-public enum class HdrProtocolType
+typedef enum
 {
 	CFG_HDR_PROTOCOL_UNKNOWN = 0,	/*!< Current HDR protocol could not be defined */
 	CFG_HDR_PROTOCOL_REV0	 = 1,	/*!< REV 0 protocol */
 	CFG_HDR_PROTOCOL_REVA	 = 2,	/*!< REV A protocol */
-} ;
+} HdrProtocolType;
 
 /// \enum BandPreferenceType
 /// <tt><b>\<CDMA/EVDO devices only\></b></tt> \n
 /// This enum defines values for the band class preference
-public enum class BandPreferenceType
+typedef enum
 {
 	NV_BAND_PREF_CELL		= 3,	/*!< Band class CELL */
 	NV_BAND_PREF_PCS		= 4,	/*!< Band class PCS */
 	NV_BAND_PREF_AUTOMATIC  = 65535	/*!< Determine band class automatically */
-} ;
+} BandPreferenceType;
 
 /// \enum MipQcmipType
 /// <tt><b>\<CDMA/EVDO devices only\></b></tt> \n
 /// This enum defines modes for Mobile IP (MIP) behaviour.
-public enum class MipQcmipType
+typedef enum
 {
 	NV_MIP_QCMIP_MIP_DISABLED	= 0,	/*!< Device uses Simple IP only */
 	NV_MIP_QCMIP_MIP_PREFERRED  = 1,	/*!< Device uses Mobile IP with fallback to Simple IP */
 	NV_MIP_QCMIP_MIP_ONLY		= 2		/*!< Device uses Mobile IP only */
-} ;
+} MipQcmipType;
 
 /// \enum BATTERY_STATE
 ///This enum defines values that describe the state of the device's battery.  These values are used with SDK method Phoenix::IPhoenix::GetBatteryInfo.
-public enum class BATTERY_STATE 
-{
+typedef enum {
 	BATTERY_POWERED = 0,	/*!< Battery is present; Powered by battery. */
 	BATTERY_EXTERNAL_POWER = 1,	/*!< Battery is present; Powered by external source. */
 	BATTERY_UNAVAILABLE = 2,	/*!< Battery is absent. */
-} ;
+} BATTERY_STATE;
 
 /*******************************************************************
 END EVDO configuration and setting related types
@@ -598,7 +590,7 @@ Types related to EVDO activation
 
 /// \enum OmaType
 /// This enum defnes the type of OMA-DM sessions available for use with OMA-DM methods.
-public enum class OmaType
+typedef enum
 {
 	OMA_TYPE_DM             = 0, /*!< OMA-DM session for device activation */
 	OMA_TYPE_PRL            = 1, /*!< OMA-DM session for PRL updates */
@@ -611,11 +603,11 @@ public enum class OmaType
     OMA_TYPE_FUMO_UPDATE_NOW = 8, /*!< Bell Mobility. Update now */
     OMA_TYPE_FUMO_UPDATE_LATER = 9, /*!< Bell Mobility. Update later, within 24 hours */
     OMA_TYPE_FUMO_UPDATE_OK = 10, /*!< Bell Mobility. Update is okay to happen now */
-};
+}OmaType;
 
 /// \enum OmaState
 /// This enum defines values for the state of OMADM subsystem.
-public enum class OmaState
+typedef enum 
 {
 	OMA_DM_DISABLED 				= 0x00, /*!< OMA-DM based device activation is disabled */
 	OMA_PRL_DISABLED				= 0x01, /*!< OMA-DM based PRL update is disabled */
@@ -636,11 +628,11 @@ public enum class OmaState
 	FUMO_IDLE                       = 0x0F, /*!< FUMO session is complete. */
 	
 	OMA_STATE_ENUM_MAX				= 0x0F,
-};
+}OmaState;
 
 /// \enum OmaStatus
 ///This enum defines values for OMA-DM specific error codes. 
-public enum class OmaStatus
+typedef enum
 {
 	OMA_SUCCESS 					= 0x00, /*!< Operation succeeded */
 	OMA_ERR_NO_REASON				= 0x01, /*!< Unknown error code */
@@ -660,11 +652,11 @@ public enum class OmaStatus
 	OMA_ERR_FUMO_UPDATE_PACKAGE		= 0x0E,	/*!< OMA-DM based firmware update package is corrupt */
 	
 	OMA_STATUS_ENUM_MAX 			= 0x0E,
-};
+}OmaStatus;
 
 /// \enum OmaExtStatus
 ///This enum defines values for OMA-DM specific extended status codes
-public enum class OmaExtStatus
+typedef enum
 {
 	OMA_ERR_EXT_PLACE_HOLDER		= 0x0000,	/*!< Place Holder */
 	HFA_HEARTBEAT					= 0x0001,	/*!< HFA (Hands Free Activation) is in progress and is in-between retires */
@@ -682,11 +674,11 @@ public enum class OmaExtStatus
 	FUMO_REPORT_UPDATE_STATUS		= 0x000D,	/*!< Reporting firmware update status to server */
 	
 	OMA_ERR_EXT_NULL				= 0xFFFF,	/*!< Place holder */
-};
+}OmaExtStatus;
 
 /// \enum OmaEvent
 /// This enum defines events returned by OMA-DM subsystem during an activation or PRL update session. 
-public enum class OmaEvent
+typedef enum
 {
 	OMAEVENT_PRLMaxPRLSizeGetFunc,					/*!< <tt><b>(reserved for internal use)</b></tt> */
 	OMAEVENT_PRLMaxPRLSizeReplaceFunc,				/*!< <tt><b>(reserved for internal use)</b></tt> */
@@ -721,34 +713,31 @@ public enum class OmaEvent
 	OMAEVENT_Profile1SpiHAGetFunc,					/*!< <tt><b>(reserved for internal use)</b></tt> */
 	OMAEVENT_Profile1SpiHAReplaceFunc,				/*!< <tt><b>(reserved for internal use)</b></tt> */
 	OMAEVENT_CBFuntion_MAX							/*!< Place holder */
-};
+}OmaEvent;
 
 /// Defines an API structure used to convey OMA-DM status information.
-public ref class OmaStatusEvent
+typedef struct
 {
-public: 
     unsigned char    state;     /*!< TODO oma state  */
     unsigned char    status;    /*!< TODO oma status */
     unsigned short   extended;  /*!< TODO oma exteneded value */
     unsigned long    data;      /*!< TODO oma data */
-};
+}OmaStatusEvent;
 
 
 /// Defines an API structure used when querying the OMA capabilities of a device.
-public ref class OmaCapabilityStruct
-{ 
-public: 
-
+typedef struct
+{
     unsigned char    dm_capable;        /*!< oma dm capable flag  */
     unsigned char    dm_enabled;        /*!< oma dm enabled flag  */
     unsigned char    prl_capable;       /*!< oma prl capable flag */
     unsigned char    prl_enabled;       /*!< oma prl enabled flag */
-};
+}OmaCapabilityStruct;
 
 /// \enum ActivationType
 /// <tt><b>\<CDMA/EVDO devices only\></b></tt> \n
 /// This enum defines the possible activation types that can be performed.
-public enum class ActivationType
+typedef enum
 {
 	NW_ACTIVATE_AUTOMATIC		= 0,    /*!< Activation type Automatic. Attempts to determine the appropriate activation type*/
 	NW_ACTIVATE_MANUAL			= 1,    /*!< Activation type manual. Device is reset upon successfull activation */
@@ -757,12 +746,12 @@ public enum class ActivationType
 	NW_ACTIVATE_MANUAL_NOACTIVATION_CODE = 3, /*!< Just activation information is being provided without the activation code. The activation code was provided earlier in the process. */
 	NW_ACTIVATE_OVERRIDE_IOTA	= 4,	/*!< Activation overridden to perform an IOTA activation. Used to force an IOTA activation. No other activation-type checks will be executed. */
 	NW_ACTIVATE_OVERRIDE_OTASP	= 5,	/*!< Activation overridden to perform an OTASP activation. Used to force an OTASP activation. No other activation-type checks will be executed. */
-} ;
+} ActivationType;
 
 
 /// \enum ActivationStateType
 /// THis enum defines values for the status of the activation process.
-public enum class ActivationStateType
+typedef enum
 {
 	NW_ACT_STATUS_UNKNOWN				= 0,	/*!< Status unknown */
 	NW_ACT_STATUS_PRGMING_IN_PROGRESS	= 1,	/*!< Activation has begun and device programming is in progress */
@@ -783,22 +772,21 @@ public enum class ActivationStateType
 	NW_ACT_STATUS_WAP_PUSH_IN_PROGRESS	= 16,	/*!< <tt><b>(reserved)</b></tt> */
 	NW_ACT_STATUS_RETRY_ATTEMPT			= 17,	/*!< <tt><b>(reserved)</b></tt> */
 	NW_ACT_STATUS_COUNT							/*!< Place Holder */
-} ;
+} ActivationStateType;
 
 /// Defines a structure used to provice activation information
-public ref class ActivationInfoStruct
-{ 
-public: 
+typedef struct
+{
     unsigned long           dwSize;                     /*!< size of the ActivationInfoStruct */
     ActivationType          eType;                      /*!< Type of activation to perform */
     unsigned char           bAsynchronousActivation;    /*!< Asynchronous flag */
-    char^                    szMDN;      /*!< The MDN to activate with (manual only) */	
-    char^                    szMIN;      /*!< The MIN to activate with (manual only) */	
-    char^                    szActivationCode; /*!< The service programming code for activation */
+    char                    szMDN[NW_SIZE_NUMBER];      /*!< The MDN to activate with (manual only) */	
+    char                    szMIN[NW_SIZE_NUMBER];      /*!< The MIN to activate with (manual only) */	
+    char                    szActivationCode[ NW_ACTIVATION_CODE_SIZE ]; /*!< The service programming code for activation */
     unsigned short          dwHomeSID;                  /*!< The Home SID to set (manual only) */
     unsigned long           dwPRLDataSize;              /*!< The size of the PRL data being provided (manual only)*/
     unsigned char           *pPRLData;                  /*!< Pointer to a buffer containing the PRL data to apply */
-} ;
+} ActivationInfoStruct;
 /*******************************************************************
 END EVDO activation related types
 ********************************************************************/
@@ -810,48 +798,48 @@ GSM related types
 ///<tt><b><UMTS and HSDPA devices only\></b></tt>\n
 ///This enum defines values for the mode parameter as used with #NvtlGsm_SetNetworkOperator method.
 ///It denotes the mode for the command AT+COPS that is used internally.
-public enum class CopsModeType
+typedef enum
 {
 	COPS_MODE_AUTOMATIC	= 0,	/*!< Automatically select network operator */
 	COPS_MODE_MANUAL	= 1,	/*!< Manually select network operator */
 	COPS_MODE_DEREGISTER = 2,	/*!< Deregistration from the network */
 	COPS_MODE_SET_FORMAT = 3,	/*!< Set \ref _at_cops_format_e_type "format" for read command */
-};
+}CopsModeType;
 
 /// \enum CopsFormatType
 ///<tt><b><UMTS and HSDPA devices only\></b></tt>\n
 ///This enum defines values for the format parameter as used with #NvtlGsm_SetNetworkOperator method.
 ///It denotes the format for the command AT+COPS that is used internally.
-public enum class CopsFormatType
+typedef enum
 {
 	COPS_FORMAT_LONG_ALPHANUMERIC	= 0, /*!< Long alphanumeric format. For e.g. "Orange F" */
 	COPS_FORMAT_SHORT_ALPHANUMERIC	= 1, /*!< Short alphanumeric format. For e.g. "Cingular" */
 	COPS_FORMAT_NUMERIC				= 2, /*!< Numeric format. For e.g. "310380", for Cingular */
-};
+}CopsFormatType;
 
 /// \enum AccessTechType
 ///<tt><b><UMTS and HSDPA devices only\></b></tt>\n
 ///This enum defines values for the access technology parameter as used with the NvtlGsm_SetNetworkOperator method.
 ///It is used internally with AT+COPS command.
-public enum class AccessTechType
+typedef enum
 {
 	ACCESS_TECH_GSM			= 0,	/*!< GSM */
 	ACCESS_TECH_GSM_COMPACT	= 1,	/*!< GSM Compact */
 	ACCESS_TECH_UTRAN		= 2,	/*!< UMTS Terrestrial Radio Access Network */
 	ACCESS_TECH_AUTOMATIC	= 3,	/*!< Automatic selection */
 	ACCESS_TECH_NA			= 4,	/*!< Place Holder */
-};
+}AccessTechType;
 
 /// \enum CopsNetworkStatusType
 ///<tt><b><UMTS and HSDPA devices only\></b></tt>\n
 ///This enum defines values for the network status types as returned from the AT+COPS data returned from the GetNetworkOperatorList method.
-public enum class CopsNetworkStatusType
+typedef enum 
 {
 	COPS_NETWORK_STATUS_UNKNOWN		= 0,
 	COPS_NETWORK_STATUS_AVAIAILABLE	= 1,
 	COPS_NETWORK_STATUS_CURRENT		= 2,
 	COPS_NETWORK_STATUS_FORBIDDEN	= 3
-} ;
+} CopsNetworkStatusType;
 /*******************************************************************
 END GSM related types
 *******************************************************************/
@@ -860,23 +848,21 @@ Address Book related types
 ********************************************************************/
 
 /// Defines an API structure used when setting or retrieving a contact from the address book.
-public ref class ContactInfoStruct
-{ 
-public:    
+typedef struct
+{   
 	unsigned long   dwIndex;                            /*!< Index of the contact in the address book */
-	char^	        szContactName;   /*!< Name of the contact */
-	char^            szContactDetails;   /*!< Phone number of the contact */
-} ;
+	char	        szContactName	[ NW_SIZE_NAME ];   /*!< Name of the contact */
+	char            szContactDetails[ NW_SIZE_NAME ];   /*!< Phone number of the contact */
+} ContactInfoStruct;
 
 /// Defines an API structure used when querying statistics about the address book.
-public ref class ContactSizeInfoStruct
-{ 
-public: 
+typedef struct
+{
 	unsigned long	dwMinIndex;             /*!< The mininum valid index in the address book */
 	unsigned long	dwMaxIndex;             /*!< The maximum valid index in the address book */
 	unsigned long	dwContactNameMax;       /*!< The maximum allowed characters for the name of a contact */
 	unsigned long	dwContactDetailsMax;    /*!< The maximum allowed characters for the detail of a contact */
-} ;
+} ContactSizeInfoStruct;
 /*******************************************************************
 END Address Book related types
 ********************************************************************/
@@ -887,7 +873,7 @@ SMS related types
 ********************************************************************/
 /// \enum SMSMessageState
 /// defines general sms message states
-public enum class SMSMessageState
+typedef enum
 {	
     SMS_STATE_EMPTY	= 60000,        /*!< NULL sms state */
 	SMS_STATE_UNREAD,               /*!< sms is unread */
@@ -899,28 +885,28 @@ public enum class SMSMessageState
 	SMS_STATE_SENT,                 /*!< sms is sent */
 	SMS_STATE_DELIVERED,            /*!< sms is delivered */    
 	SMS_STATE_FAILED_SEND           /*!< sms failed to send*/
-};
+}SMSMessageState;
 
 /// \enum SMSBoxEnum
 /// Not Used.
-public enum class SMSBoxEnum
+typedef enum
 {
     SMSInbox	= 0,        /*!< sms inbox   */
 	SMSOutbox,              /*!< sms outbox  */
 	SMSSentbox              /*!< sms sentbox */
-};
+}SMSBoxEnum;
 
 /// \enum SmsStorageType
 /// Not used
-public enum class SmsStorageType
+typedef enum 
 {
     SmsStorageHOST	= 0,    /*!< sms messages are stored on the host */
 	SmsStorageSM,           /*!< sms messages are stored on the SIM (HSPA only) */
-};
+}SmsStorageType;
 
 /// \enum SmsStateType
 /// This enum defines values for the possible states of an sms message.  Used when querying for a list of sms messages
-public enum class SmsStateType
+typedef enum
 {	
 	NW_SMS_RECEIVED_UNREAD		= 0,  /*!< New unread message */
 	NW_SMS_RECEIVED_READ		= 1,  /*!< Previously read message */
@@ -928,53 +914,50 @@ public enum class SmsStateType
 	NW_SMS_SENT					= 3,  /*!< Set messsage */
 	NW_SMS_ALL					= 4,  /*!< ANY message stat*/ 
 	NW_SMS_STATUS_UNKNOWN		= 5   /*!< Unknown sms message state*/
-};
+}SmsStateType;
 
 /// \enum SmsSendStatusType
 /// This enum defines the possible status values that can be received when sending an sms mesage.=
-public enum class SmsSendStatusType
+typedef enum
 {
     NW_SMS_SEND_SUCCESS     = 0,    /*!< Sms sent okay */
     NW_SMS_SEND_NO_SERVICE,         /*!< Sms send failed due to lack of service */
     NW_SMS_SEND_INTERNAL_ERROR,     /*!< Sms send failed due to some other error */
-};
+}SmsSendStatusType;
 
 /// Provides information about the voice mail indicator
-public ref class VoiceMailInfoStruct
-{ 
-public: 
+typedef struct
+{
 	unsigned char   bVoiceMailActive;   /*!< Voicemail indicator is active */
 	unsigned long   dwVoiceMailIndex;   /*!< sms index of voicemail indicator */
-} ;
+} VoiceMailInfoStruct;
 
 /// \enum SmsMessageType 
 /// Indicates the type of message that is encoded/present in the sms message struct.
-public enum class SmsMessageType
+typedef enum
 {
 	NW_SMS_TYPE_UNKNOWN		= 0,    /*!< Unknown encoding */
 	NW_SMS_TYPE_WMS			= 1,    /*!< WMS encoding */
 	NW_SMS_TYPE_IS683		= 2,    /*!< IS683 encoding */
 	NW_SMS_TYPE_PDU			= 3,    /*!< GSM PDU encoding */
-} ;
+} SmsMessageType;
 
 /// Defines a structure used when retrieving or sending an Sms message
-public ref class SmsMessageStruct
-{ 
-public: 
+typedef struct
+{
 	unsigned short      eSMSType;   /*!< The Sms encoding type*/
 	unsigned short      eState;     /*!< The state of the sms message */
 	unsigned short      index;      /*!< The index of the sms message in the sms list*/
 	unsigned short      data_len;   /*!< The length of the encoded data*/
-	unsigned char^       data;  /*!< A pointer to a buffer that contains/receives the encoded data */
-} ;
+	unsigned char       data[500];  /*!< A pointer to a buffer that contains/receives the encoded data */
+} SmsMessageStruct;
 
 /// Defines the state of an sms msg at the corresponding index of the list of sms messages
-public ref class SmsMessageInfo
-{ 
-public: 
+typedef struct
+{
 	unsigned short	index;    /*!< The index of the sms message in the sms list */
 	unsigned short	eState;   /*!< The state of the sms message at the index */
-} ;
+} SmsMessageInfo;
 
 /*******************************************************************
 END SMS related types
@@ -987,29 +970,29 @@ GPS related types
 
 /// \enum GpsModeType
 /// This enum defines the possible modes of the GPS engine
-public enum class GpsModeType
+typedef enum
 {
 	NW_GPS_NOGPS				= 0x00,		/*!< No GPS Support */
 	NW_GPS_STANDALONE			= 0x01,	    /*!< Standalone */
 	NW_GPS_MS_BASED				= 0x02,	    /*!< MS Based */
 	NW_GPS_MS_ASSISTED			= 0x04,	    /*!< MS Assisted */
 	NW_GPS_INTERNET_ASSISTED	= 0x08,		/*!< Standalone mode with internet assistance for retrieving satellite info quickly*/
-} ;
+} GpsModeType;
 
 /// \enum GpsSessionType
 /// This enum defines the types of sessions that can be used when receiving fixes.
-public enum class GpsSessionType
+typedef enum
 {
 	NW_GPS_LAST_FIX                 = 0,    /*!< Last fix */
 	NW_GPS_NEW_FIX                  = 1,    /*!< 1 new fix */
 	NW_CGPS_TRACK_INDEPENDENT_FIX	= 2,		
 	NW_GPS_CONTINUOUS_FIX           = 3,    /*!< Continuous fix */
 	NW_GPS_CONSTANT_CONTINUOUS_FIX  = 4,    /*!< Continuous fix*/
-} ;
+} GpsSessionType;
 
 /// \enum GpsEventType
 /// This enum defines the possible types of GPS Event
-public enum class GpsEventType
+typedef enum
 {
     NW_GPS_INVALID_FIX          = 0x00,     /*!< Too many invalid fixes received consecutively */
 	NW_GPS_FIX_RECEIVED         = 0x01,     /*!< GPS Fix Received */ 
@@ -1019,12 +1002,11 @@ public enum class GpsEventType
 	NW_GPS_SUBSCRIPTION_FAILED	= 0x05,		/*!< 30 day subscription requirement failed. Valid only for Standalone mode */
 	NW_GPS_STANDALONE_FALLBACK	= 0x06,		/*!< Fallback to Standalone mode (available only in smart mode)*/
     NW_GPS_SESSION_END          = 0x07,     /*!< A Gps pd session ended */
-} ;
+} GpsEventType;
 
 /// Defines an API structure used to obtain information about a single GPS fix
-public ref class GpsFixInfoStruct
-{ 
-public: 
+typedef struct
+{
 	double	        latitude;                           /*!< latitude */
 	double	        longitude;                          /*!< longitude */
 	long            altitude;                           /*!< altitude */
@@ -1037,56 +1019,54 @@ public:
 	double	        vertical_std_dev_uncertainty;       /*!< vertical standard deviation uncertainty */
 	long            fix_type;                           /*!< type of fix */
 	unsigned long   timestamp;                          /*!< timestamp of fix */
-} ;
+} GpsFixInfoStruct;
 
 /// Defines an API structure that contains information about a single GPS satellite
-public ref class GpsSatelliteInfoStruct
-{ 
-public: 
+typedef struct
+{
 	unsigned char prn;              /*!< Pseudo Random Noise (PRN) number. This is used to identify the satellite */  
 	unsigned char elevation;        /*!< satellite elevation */  
 	unsigned short azimuth;         /*!< satellite azimuth*/    
 	unsigned short snr;             /*!< satellite signal to noise ratio (SNR) */
 	unsigned char location_valid;   /*!< satellite location is valid */
 	unsigned char snr_valid;        /*!< SNR value is valid */
-};
+}GpsSatelliteInfoStruct;
 
 /// \def MAX_PRN
 /// Defines the maximum number of satellite
 #define MAX_PRN 37
 
 /// Defines an API structure that contains information about the GPS satellites
-public ref class GpsSatelliteConstellationStruct
-{ 
-public: 
+typedef struct
+{
 	long num_svs;								/*!< Number of SVs (space vehicles) used to calculate position */
 	long num_svs_detected;						/*!< Total number of SVs detected */
-	GpsSatelliteInfoStruct^ sv_info;	/*!< Information about each SV.  Indexed by Pseudo Random Noise (PRN) number */
-};
+	GpsSatelliteInfoStruct sv_info[MAX_PRN];	/*!< Information about each SV.  Indexed by Pseudo Random Noise (PRN) number */
+}GpsSatelliteConstellationStruct;
 
 /// \enum GpsSmartModeType
 /// This enum defines the modes of GPS smart mode
-public enum class GpsSmartModeType
+typedef enum
 {
 	NW_GPS_SMARTMODE_OFF			= 0,	/*!< No Smart Mode */
 	NW_GPS_SMARTMODE_MSBASED		= 1,	/*!< MS-based smart mode (falls back to standalone if MS-Based fails) */
 	NW_GPS_SMARTMODE_STANDALONE		= 2,	/*!< Standalone smart mode (falls back to MS-based if Standalone fails) */
-};
+}GpsSmartModeType;
 
 /// \enum NMEAOutputType
 /// This enum defines the possible Formats of NMEA Output string
-public enum class NMEAOutputType
+typedef enum
 {
 	NW_NMEA_OUTPUT_GPGGA	=	0x0001,     /*!< NMEA OUTPUT TYPE GPGGA */
 	NW_NMEA_OUTPUT_GPGSA	=	0x0002,     /*!< NMEA OUTPUT TYPE GPGSA */
 	NW_NMEA_OUTPUT_GPGSV	=	0x0004,     /*!< NMEA OUTPUT TYPE GPGSV */
 	NW_NMEA_OUTPUT_GPVTG	=	0x0008,     /*!< NMEA OUTPUT TYPE GPVTG */
 	NW_NMEA_OUTPUT_GPRMC	=	0x0010,     /*!< NMEA OUTPUT TYPE GPRMC */
-} ;
+} NMEAOutputType;
 
 /// \enum PDSMSessionType
 /// This enum defines the possible session types for the GPS engine
-public enum class PDSMSessionType
+typedef enum
 {
     NW_PDSM_SESSION_OPERATION_MIN = 0,         /*!< <tt><b>(reserved for internal use)</b><tt>*/
     NW_PDSM_SESSION_OPERATION_STANDALONE_ONLY, /*!< Standalone only mode */
@@ -1096,59 +1076,56 @@ public enum class PDSMSessionType
     NW_PDSM_SESSION_OPERATION_OPTIMAL_ACCURACY,/*!< Assisted optimal accuracy mode */
     NW_PDSM_SESSION_OPERATION_OPTIMAL_DATA,    /*!< Assisted optimal data mode */
     NW_PDSM_SESSION_OPERATION_REF_POSITION,    /*!< Assisted reference position mode */
-};
+}  PDSMSessionType;
 
 /// Defines an API structure that contains information about the current GPS session
-public ref class PDSMSessionInfo
-{ 
-public: 
+typedef struct
+{
     PDSMSessionType mode;                      /*!< Operating Mode (set to 0xff if there is no ongoing GPS session or the session has been completed) */
     unsigned char   qosSessionTimeout;         /*!< Qos Session Timeout (set to 1 if there is no ongoing GPS session or the session has been completed) */
     unsigned int    qosAccuracyThreshold;      /*!< Qos Accuracy Threshold (set to 0xffffffff if there is no ongoing GPS session or the session has been completed) */
-} ;
+} PDSMSessionInfo;
 
 /*******************************************************************
 END GPS related types
 ********************************************************************/
 
 /// Defines an API structure that contains basic information about an available WWAN device
-public ref class DeviceDetail
-{ 
-public: 
+typedef struct
+{
 	DeviceTechType          eTechnology;		         /*!< technology type of the device */
 	DeviceFormFactorType    eFormFactor;				 /*!< physical form factor */
-	char^                    szDescription;	 /*!< general name of the device */
-	char^                    szPort;         /*!< name of the modem port */
-    char^                    szFriendlyName; /*!< friendly name of the modem port */
-};
+	char                    szDescription[NW_MAX_PATH];	 /*!< general name of the device */
+    char                    szPort[NW_MAX_PATH];         /*!< name of the modem port */
+    char                    szFriendlyName[NW_MAX_PATH]; /*!< friendly name of the modem port */
+}DeviceDetail;
 
-public ref class OSDeviceDetail
-{ 
-public: 
+typedef struct
+{
     DeviceTechType          eTechnology;	    		//technology type of the device
 	DeviceFormFactorType    eFormFactor;
     unsigned short          vid;
     unsigned short          pid;
     unsigned long long      sessionId;					// Session ID
 
-    char^                    szDescription;
-	char^                    szModemPort;
-	char^                    szStatusPort;
-	char^                    szDiagPort;
-	char^                    szGpsPort;
+    char                    szDescription[NW_MAX_PATH];
+    char                    szModemPort[NW_MAX_PATH];
+    char                    szStatusPort[NW_MAX_PATH];
+    char                    szDiagPort[NW_MAX_PATH];
+    char                    szGpsPort[NW_MAX_PATH];
 
 #if defined(_NVTL_WINDOWS_)
-    char^                   szModemPortFriendlyName;
-	char^                    szStatusPortFriendlyName;
-	char^                    szDiagPortFriendlyName;
-	char^                    szGpsPortFriendlyName;
+    char                    szModemPortFriendlyName[NW_MAX_PATH];
+    char                    szStatusPortFriendlyName[NW_MAX_PATH];
+    char                    szDiagPortFriendlyName[NW_MAX_PATH];
+    char                    szGpsPortFriendlyName[NW_MAX_PATH];
     
     long                    iNdisIndex;
-	char^                    szPriHardwareId;
-	char^                    szSecHardwareId;
-	char^                    szNdisHardwareId;
-	char^                    szDriverVersion;
-	char^                    szStatusPortInstanceId;
+    char                    szPriHardwareId[NW_MAX_PATH];
+    char                    szSecHardwareId[NW_MAX_PATH];
+    char                    szNdisHardwareId[NW_MAX_PATH];
+    char                    szDriverVersion[NW_MAX_PATH];
+    char                    szStatusPortInstanceId[NW_MAX_PATH];
 
 #elif DEFINED_MAC
     
@@ -1164,33 +1141,33 @@ public:
     unsigned char           bRestricted;
 #endif
 
-};
+}OSDeviceDetail;
 /*******************************************************************
 Basic SDK API related types
 ********************************************************************/
 
 /// \enum NvtlSdkModeType
 /// This enum defines the mode in which the SDK is being used
-public enum class NvtlSdkModeType
+typedef enum 
 {
 	SdkModeLocal = 0,   /*!< The SDK is accessing the device COM port directlly */
 	SdkModeShared,      /*!< The SDK is accessing the device through the SDK server to allow concurrent access */
-};
+}NvtlSdkModeType;
 
 /// \enum PropertyAction
 /// This enum defines the action types used when accessing and SDK property
-public enum class PropertyAction
+typedef enum
 {
 	PropGet = 0,    /*!< The property is being read */
 	PropSet = 1,    /*!< The property is being set */
     PROP_GET = 0,   /*!< The property is being read */
     PROP_SET = 1,   /*!< The property is being set */
-};
+}PropertyAction;
 
 //Enumerates the possible events that can be fired by the SDK
 /// \enum NvtlEventType
 /// This enum defines the types of SDK events that can be received in an SDK callback handler
-public enum class NvtlEventType
+typedef enum
 {
 	NW_EVENT_SIG_STR = 0,           /*!< The signal strength has changed.  The handler event receives a pointer to a SigStrEvent struct */
 	NW_EVENT_ROAMING,               /*!< The roaming status has changed.   The handler event receives a pointer to a RoamingEvent struct */
@@ -1227,155 +1204,147 @@ public enum class NvtlEventType
     NW_EVENT_GPS_SMS_FILTER,        /*!< Reports a specialized GPS directed SMS was received.  Only for VZW LBS services */
     NW_EVENT_GPS_SECURITY,          /*!< Reports that gps security is initialized.  Only for VZW LBS services */
     NW_EVENT_GPS_CMD_ERROR,         /*!< Reports that a gps command failed. Only for VZW LBS services. */
-};
+}NvtlEventType;
 
 /// Defines a structure sent to registered event callbacks containing information about the event.
-public ref class NvtlEventStruct
-{ 
-public: 
+typedef struct
+{
 	unsigned long	type;       /*!< Contains the type of the event (NvtlEventType) */
 	unsigned long	size;       /*!< Contains the total size of the event buffer */
 	unsigned char*	buffer;     /*!< A buffer containing the data or the pointer to the appropriate structure or type */
-};
+}NvtlEventStruct;
 
-public ref class StandardEvent
-{
-public:
+typedef struct {
     unsigned long val;  /*!< The value of the event */
-};
+}StandardEvent;
 
 /// Defines the strength event received in the event callback when
 /// the signal strength changes.  The value is the current signal strength of the device
-public ref class SigStrEvent : StandardEvent{};
+typedef StandardEvent SigStrEvent;         
 
 /// Defines the romaing event struct receieved in the event callback when
 /// the roaming status changes.  The value is the current roaming status of the device as defined by the #DeviceRoamStatusType enum
-public ref class RoamingEvent : StandardEvent{};
+typedef StandardEvent RoamingEvent;
 
 /// Defines the device state event received in the event callback when
 /// the device state changes.  The value is the current state of the device as defined by the #DeviceStateType enum
-public ref class DeviceStateEvent : StandardEvent{};
+typedef StandardEvent DeviceStateEvent;
 
 /// Defines the dormancy event received in the event callback when
 /// the dormancy status changes.  The value is the current dormancy status of the device
-public ref class DormantEvent : StandardEvent{};
+typedef StandardEvent DormantEvent;
 
 /// Defines the network event received in the event callback when
 /// the network status changes.  The value is the current network state of the device as defined by the #DeviceServiceType enum
-public ref class NetworkEvent : StandardEvent{};
+typedef StandardEvent NetworkEvent;
 
 /// Defines the server error event received in the event callback when
 /// an error is received from the device relating to connections.  The value is an
 /// error received during a connection or connection attempt.
-public ref class ServerErrorEvent : StandardEvent{};
+typedef StandardEvent ServerErrorEvent;
 
 /// Defines the sms event received in the event callback when 
 /// new sms messages are available.  The value is an indicator that new sms messages are waiting.
-public ref class SmsEvent : StandardEvent{};
+typedef StandardEvent SmsEvent;
 
 /// Defines the sms sent event received in the event callback when
 /// an sms message is either sent or failed during transmission. The value is an indicator of the 
 /// success or failure of an attempt at sending an sms message
-public ref class SmsSentEvent : StandardEvent{};
+typedef StandardEvent SmsSentEvent;
 
 /// Defines the device added event received in the event callback when
 /// a new device is added to the system. 
-public ref class DeviceAddedEvent : StandardEvent{};
+typedef StandardEvent DeviceAddedEvent;
 
 /// Defines the device removed event received in the event callback when
 /// a device is removed from the system
-public ref class DeviceRemovedEvent : StandardEvent{};
+typedef StandardEvent DeviceRemovedEvent;
 
 /// Defines the activation event received in the event callback when
 /// the activation status changes.  The value is an indication of the current state of the activation process
 /// as defined by the #ActivationStateType enum
-public ref class ActivationEvent : StandardEvent{};
+typedef StandardEvent ActivationEvent;
 
 /// Defines the gps event received in the event callback when
 /// gps status changes or fixes are available.
-public ref class GpsEvent : StandardEvent{};
+typedef StandardEvent GpsEvent;
 
 /// Defines the device erorr event received in the event callback when
 /// an error occurs with the communication with a device.
-public ref class DeviceErrorEvent : StandardEvent{};
+typedef StandardEvent DeviceErrorEvent;
 
 /// Defines the xtra status event received in the event callback when
 /// the xtra status of the gps engine changes.
-public ref class XtraStatuEvent : StandardEvent{};
+typedef StandardEvent XtraStatuEvent;
 
 /// Defines the xtra time synce event received in the event callback when
 /// the gps engine synchronizes time with an internet server.
-public ref class XtraTimeSyncEvent : StandardEvent{};
+typedef StandardEvent XtraTimeSyncEvent;
 
 /// Defines the device erorr event received in the event callback when
 /// a session has succesfully attached to a device.
-public ref class DeviceAttachedEvent : StandardEvent{};
+typedef StandardEvent DeviceAttachedEvent;
 
 /// Defines the device erorr event received in the event callback when
 /// a session has succesfully detached from a device.
-public ref class DeviceDetachedEvent : StandardEvent{};
+typedef StandardEvent DeviceDetachedEvent;
 
 /// Defines the erorr event received in the event callback when
 /// a mobile ip error has been received.
-public ref class MipErrorEvent : StandardEvent{};
+typedef StandardEvent MipErrorEvent;
 
 /// Defines the unsolicited event received in the event callback when
 /// an unsolicited AT repsonse is received.
 typedef char* UnsolicitedATEvent;
 
 /// Defines the event received when a specialized GPS routed SMS is received. Select VZW devices only.
-public ref class GpsSmsFilterEvent{
-public:
-    char^  val;
-};
+typedef struct{
+    char    val[255];
+}GpsSmsFilterEvent;
 
 /// Defines the erorr event received in the event callback when
 /// a gps command has failed.
-public ref class GpsCommandErrorEvent : StandardEvent{};
+typedef StandardEvent GpsCommandErrorEvent;
 
 
 /// Defines the callback function used to propogate SDK events.
-public delegate void NvtlSdkEventFunc(char^ user_data, NvtlEventType type, unsigned long size, StandardEvent ev);
+typedef void (*NvtlSdkEventFunc)( void* user_data, unsigned long type, unsigned long size, void* ev );
 
-public ref class GPSEventXTRADownloadStruct
+typedef struct 
 {
-public:
-	unsigned int                flags;
-	unsigned int                status;
-	unsigned short              command;
-	unsigned short              startGpsWeek;
-	unsigned short              startGpsMinutes;
-	unsigned short              validDurationHours;
-	char^                       xtra_server_primary;
-	char^                       xtra_server_secondary;
-	char^                       xtra_server_tertiary;
-	unsigned int                maxFilePartSize;
-	unsigned int                maxFileSize;
-};
+    unsigned int                flags;
+    unsigned int                status;
+    unsigned short              command;
+    unsigned short              startGpsWeek;
+    unsigned short              startGpsMinutes;
+    unsigned short              validDurationHours;
+    char                        xtra_server_primary[128];
+    char                        xtra_server_secondary[128];
+    char                        xtra_server_tertiary[128];
+    unsigned int                maxFilePartSize;
+    unsigned int                maxFileSize;
+} GPSEventXTRADownloadStruct;
 
-public ref class GPSEventXTRATimeinfoStruct
-{ 
-public:
+typedef struct 
+{
     unsigned int                command;
     unsigned int                oneway_delay_failover_thresh;
-	char^                       xtra_server_primary;
-	char^                       xtra_server_secondary;
-	char^                       xtra_server_tertiary;
-};
+    char                        xtra_server_primary[128];
+    char                        xtra_server_secondary[128];
+    char                        xtra_server_tertiary[128];
+} GPSEventXTRATimeinfoStruct;
 
 
 /// Callback structure used to receive events from the SDK
-public ref class NvtlEventCallback
-{ 
-public: 
-	INT_PTR              user_data;      /*!< A user defined pointer that is returned during the callback */
-	NvtlSdkEventFunc^    event_func;     /*!< A pointer to the NvtlSdkEventFunc that should be called for events */
-};
+typedef struct
+{
+	void*               user_data;      /*!< A user defined pointer that is returned during the callback */
+	NvtlSdkEventFunc    event_func;     /*!< A pointer to the NvtlSdkEventFunc that should be called for events */
+}NvtlEventCallback;
 
 ///Contains information about a file in the EFS of the device
-public ref class EfsFileInfoStruct
-{ 
-public: 
+typedef struct
+{
 	unsigned long	type;       /*!< File type */
 	unsigned long	mode;       /*!< file mode */
 	unsigned long	size;       /*!< file size */
@@ -1383,10 +1352,10 @@ public:
 	unsigned long	aTime;      /*!< access time */
 	unsigned long   mTime;      /*!< modified time */
 	unsigned long	cTime;      /*!< creation time */
-	char^ name;     /*!< filename */
-};
+	char name[NW_MAX_PATH];     /*!< filename */
+}EfsFileInfoStruct;
 
-public enum class RouterConfigItemIdType
+typedef enum
 {
     ROUTER_CONFIG_ID_SSID_CURRENT       = 1,    /*!< The current SSID in use */
     ROUTER_CONFIG_ID_SSID_OPEN          = 2,    /*!< The SSID for the open profile */
@@ -1394,11 +1363,11 @@ public enum class RouterConfigItemIdType
     ROUTER_CONFIG_ID_SSID_TEMPORARY     = 4,    /*!< The SSID for the temporary profie */
     ROUTER_CONFIG_ID_PROFILE_CURRENT    = 5,    /*!< The current wireless profile in use as defined by 0 = Open, 1 = Secure, 2 = Temporary */
     ROUTER_CONFIG_ID_KEY_CURRENT     = 6,       /*!< Returns the current active key in use according to the current wireless profile in use */
-};
+}RouterConfigItemIdType;
 
 /// \enum CallStatusType
 /// Defines the possible values of the current call state of the device
-public enum class CallStatusType
+typedef enum 
 {
 	CALL_STATUS_IDLE,            /*!< The device is idle */
 	CALL_STATUS_CONNECTING,      /*!< The device is establishing a call */
@@ -1406,12 +1375,11 @@ public enum class CallStatusType
 	CALL_STATUS_CONNECTED,       /*!< The device in in a call */
 	CALL_STATUS_DORMANT,         /*!< The device is in a call but dormant */
 	CALL_STATUS_DISCONNECTING,   /*!< The device is terminating a call */
-};
+}CallStatusType;
 
 /// Defines a structure containing generally relevant device information
-public ref class DeviceInfoStruct
-{ 
-public: 
+typedef struct
+{
 	unsigned long           dwSize;			/*!< Reserved. The size of the struct. */
     unsigned long           dwCurFWVersion;	/*!< Reserved */
 	SourceBuildBaseType     eBuildBase;		/*!< base chipset if known */
@@ -1428,32 +1396,31 @@ public:
 	unsigned char           subsysID;		/*!< reserved */
 
 	//module related static info
-	char^                    szSoftwareVersion;	/*!< Firmware version string */
-	char^                    szDeviceModel;			/*!< Device model string */
-	char^                    szHardwareVersion;		/*!< Hardware version string */
-	char^                    szDriverVersion;		/*!< Driver version string */
-	char^                    szMDN;				/*!< Mobile Number */
-	char^                    szFID;					/*!< Factory ID */
+	char                    szSoftwareVersion[ NW_SIZE_NAME * 2];	/*!< Firmware version string */
+	char                    szDeviceModel[ NW_SIZE_NAME ];			/*!< Device model string */ 
+	char                    szHardwareVersion[ NW_SIZE_NAME ];		/*!< Hardware version string */
+	char                    szDriverVersion[ NW_SIZE_NAME ];		/*!< Driver version string */
+	char                    szMDN[ NW_SIZE_NUMBER ];				/*!< Mobile Number */
+	char                    szFID[ NW_SIZE_NAME ];					/*!< Factory ID */
 
     //UMTS/HSPA specific values
-	char^                    szIMEI;		/*!< UMTS/HSPA. IMEI string */
-	char^                    szSMSC;			/*!< UMTS/HSPA. SMSC string */
-	char^                    szIMSI;		/*!< UMTS/HSPA. IMSI string */
-	char^                    szICCID;		/*!< UMTS/HSPA. ICCID string */
+    char                    szIMEI[ NW_SIZE_NUMBER ];		/*!< UMTS/HSPA. IMEI string */
+    char                    szSMSC[ NW_SIZE_NAME ];			/*!< UMTS/HSPA. SMSC string */
+	char                    szIMSI[ NW_SIZE_NUMBER ];		/*!< UMTS/HSPA. IMSI string */
+	char                    szICCID[ NW_SIZE_NUMBER ];		/*!< UMTS/HSPA. ICCID string */
 
     //EVDO specific values
-	char^                    szMIN;		/*!< EVDO. Mobile Identification Number (MIN) */
+    char                    szMIN [ NW_SIZE_NUMBER ];		/*!< EVDO. Mobile Identification Number (MIN) */
     unsigned long           dwESN;							/*!< EVDO. Electronic Serial Number (ESN) */
 	unsigned long           dwPRLVersion;					/*!< EVDO. PRL verison */
 	unsigned long           dwERIVersion;                   /*!< EVDO.  ERI version */
 	unsigned long           dwHomeSID;						/*!< EVDO. HOME SID */
 
-};
+} DeviceInfoStruct;
 
 /// Defines a structure that contains relevant information about the current network state of the device
-public ref class NetworkInfoStruct
-{ 
-public: 
+typedef struct
+{
     unsigned long           dwSize;         /*!< reserved. the size of the stuct */
 	unsigned long           dwSigStr;       /*!< The current signal strength of the device in range 0 - 5 */
 	unsigned long           dwRSSI;	        /*!< The current rssi of the device */
@@ -1464,11 +1431,11 @@ public:
     RoamIndicatorType	    eIndID;         /*!< EVDO. ERI Roaming indicator type */
     unsigned char           bDormant;       /*!< The current dormancy state of the device */
 	unsigned char           bNewSMS;        /*!< A flag indicating new sms status */ //should remove?
-} ;
+} NetworkInfoStruct;
 
 /// \enum SdkLogLevelType
 /// This enum defines the possible log levels
-public enum class SdkLogLevelType
+typedef enum
 {
 	SdkLogLevelNone	= 0,    /*!< No logging */
 	SdkLogLevelError,       /*!< Log only error statements */
@@ -1476,23 +1443,22 @@ public enum class SdkLogLevelType
 	SdkLogLevelInfo,        /*!< Log general usage or more serious statements */
 	SdkLogLevelDebug,       /*!< Log more detailed debugging statement */
 	SdkLogLevelAll          /*!< Enable all possible statement */
-};
+}SdkLogLevelType;
 
 /// \enum SdkLogOutputType
 /// This enum defines the output method used for logging statement
-public enum class SdkLogOutputType
+typedef enum
 {
 	SdkOutputNone	= 0x00,     /*!< No logging output */
 	SdkOutputStdOut	= 0x01,     /*!< Log to stdout */
 	SdkOutputFile	= 0x02,     /*!< Log to a file */
     SdkOutputBoth   = 0x03,     /*!< Log to both a file and std out */
     SdkOutputTrace  = 0x04,     /*!< Log to Windows Debug Log using OutputDebugString */
-};
+}SdkLogOutputType;
 
 /// \enum MipDetailMask
 /// Defines mask values related to the MIP settings
-public enum class MipDetailMask
-{
+typedef enum{
 	MIP_DETAIL_HOME_ADDRESS	    = 0x0001,	/*!< \e MIP_Home_Addr value is being specified */
 	MIP_DETAIL_PRI_HA_ADDRESS	= 0x0002,	/*!< \e MIP_PRI_HA_Addr value is being specified */
 	MIP_DETAIL_SEC_HA_ADDRESS	= 0x0004,	/*!< \e MIP_SEC_HA_Addr value is being specified */
@@ -1503,12 +1469,11 @@ public enum class MipDetailMask
     MIP_DETAIL_AAA_KEY          = 0x0080,	/*!< \e aaa_key value is being specified */
     MIP_DETAIL_NAI              = 0x0100,   /*!< \e NAI value is being specified */
     MIP_DETAIL_ENABLED          = 0x0200,   /*!< \e Enabled value is being specified */
-} ;
+} MipDetailMask;
 
 /// Defines a structure representing a date and time.
-public ref class NvtlTimeStruct
-{ 
-public: 
+typedef struct
+{
 	unsigned short		wYear;      /*!< year */
 	unsigned short		wMonth;     /*!< month */
 	unsigned short		wDay;       /*!< day */
@@ -1517,12 +1482,11 @@ public:
 	unsigned short		wSeconds;   /*!< seconds */
 	unsigned short		wMilSecs;   /*!< milliseconds */
 	unsigned short		wUTCDiff;   /*!< utc offset */
-} ;
+} NvtlTimeStruct;
 
 /// Defines a structure used for setting MIP detail information.
-public ref class MipDetailsStruct
-{ 
-public: 
+typedef struct
+{
 	unsigned char		index;                  /*!< TODO mip detail index */
 	unsigned char		mn_ha_spi_set;          /*!< TODO flag indicating ha spi is set*/
 	unsigned long		mn_ha_spi;              /*!< TODO ha spi value*/
@@ -1532,12 +1496,11 @@ public:
 	unsigned long		home_addr;              /*!< TODO home address */
 	unsigned long		primary_ha_addr;        /*!< TODO primary ha address */
 	unsigned long		secondary_ha_addr;      /*!< TODO secondary ha addrress */
-} ;
+} MipDetailsStruct;
 
 /// Defines a structure used for setting MIP detail information.  Supported only on select devices
-public ref class MipDetailsStructEx
-{ 
-public: 
+typedef struct
+{
     unsigned int        mask;                   /*!< When setting, specifies which of the fields contain data to be written */
 	unsigned char		index;                  /*!< mip detail index */
 	unsigned long		mn_ha_spi;              /*!< ha spi value*/
@@ -1547,16 +1510,15 @@ public:
 	unsigned long		primary_ha_addr;        /*!< primary ha address */
 	unsigned long		secondary_ha_addr;      /*!< secondary ha addrress */
     unsigned char       enabled;                /*!< enabled state */
-    char^                ha_key;             /*!< ha_key */
-	char^                aaa_key;            /*!< aaa_key */
-	char^                nai;                /*!< nai    */
-} ;
+    char                ha_key[25];             /*!< ha_key */
+    char                aaa_key[25];            /*!< aaa_key */
+    char                nai[72];                /*!< nai    */
+} MipDetailsStructEx;
 
 
 /// \enum MipParametersMask
 /// Defines mask values related to the fields in the MipParametersStruct
-public enum class MipParametersMask
-{
+typedef enum{
 	MIP_PARAM_MODE              = 0x0001,	/*!< \e mode value is being specified */
 	MIP_PARAM_RETRY_LIMIT       = 0x0002,	/*!< \e retry limit value is being specified */
 	MIP_PARAM_RETRY_INTERVAL    = 0x0004,	/*!< \e retry interval value is being specified */
@@ -1564,12 +1526,11 @@ public enum class MipParametersMask
 	MIP_PARAM_RE_REG_TRAFFIC    = 0x0010,	/*!< \e re-registration traffic value is being specified */
 	MIP_PARAM_HA_AUTHENTICATOR  = 0x0020,	/*!< \e HA Authenticator value is being specified */
     MIP_PARAM_HA2002BIS         = 0x0040,	/*!< \e HA2002BIS value is being specified */
-} ;
+} MipParametersMask;
 
 /// Defines a structure used for setting or retreiving MIP parameter information.  Supported only on select devices
-public ref class MipParametersStruct
-{ 
-public: 
+typedef struct
+{
     unsigned int    mask;                   /*!< When setting, specifies which of the fields contain data to be written */
     unsigned char   mode;                   /*!< MIP mode 0-off 1-preferred 2-MIP only */
     unsigned char   retryLimit;             /*!< Registration retry attempt limit */
@@ -1578,63 +1539,59 @@ public:
     unsigned char   reRegTraffic;           /*!< Re-registration only if traffic since the last attempt? */     
     unsigned char   HAAuthenticator;        /*!< MH-HA authenticator calculator? */ 
     unsigned char   HA2002bis;              /*!< MH-HA RFC 2002bis authentication instead of RFC2002 */
-};
+}MipParametersStruct;
 
 /// Defines a structure used for setting MIP key information
-public ref class MipKeysStruct
-{ 
-public:
+typedef struct 
+{
     unsigned char      index;                           /*!< TODO mip keys index */
-    unsigned char^      mn_ha_shared_secret_length;      /*!< TODO length of ha key */
-	unsigned char^      mn_ha_shared_secret;       /*!< TODO ha key*/
-	unsigned char^      mn_aaa_shared_secret_length;     /*!< TODO aaa key length */
-	unsigned char^      mn_aaa_shared_secret;        /*!< TODO aaa key */
-} ;
+    unsigned char      mn_ha_shared_secret_length;      /*!< TODO length of ha key */
+    unsigned char      mn_ha_shared_secret	[16];       /*!< TODO ha key*/
+    unsigned char      mn_aaa_shared_secret_length;     /*!< TODO aaa key length */
+    unsigned char      mn_aaa_shared_secret[16];        /*!< TODO aaa key */
+} MipKeysStruct;
 
 /** \enum MipKeyStatusType
 <tt><b>\<CDMA/EVDO devices only\></b></tt>\n
 This enum defines values for the status of shared secret keys. 
 */
-public enum class MipKeyStatusType
+typedef enum
 {
 	MIP_KEY_STATUS_SET          = 0,	/*!< 0 - Both HA and AAA are set */
 	MIP_KEY_STATUS_NOT_SET      = 3,    /*!< 3 - Either HA or AAA or both are not set */
 	MIP_KEY_STATUS_MASS_NOT_SET = 4,	/*!< 4 - When only HA is set */
 	MIP_KEY_STATUS_MHSS_NOT_SET = 5		/*!< 5 - When only AAA is set */
-};
+}MipKeyStatusType;
 
 
 /// Defines a structure for obtaining ERI information.
-public ref class EriInfoStruct
-{ 
-public: 
+typedef struct
+{
     long     roam;          /*!< TODO ERI roaming value */
 	long     indicatorId;   /*!< TODO ERI indicator id*/
 	long     iconId;        /*!< ERI icon id*/
 	long     alertId;       /*!< ERI alert id*/
-	char^     version;   /*!< ERI version string */
-	char^     data;      /*!< ERI data */
-};
+	char     version[15];   /*!< ERI version string */
+	char     data[33];      /*!< ERI data */
+}EriInfoStruct;
 
 /// Defines a structure for accessing Sid an Nid information
-public ref class SidNidInfoStruct
-{ 
-public: 
+typedef struct
+{
     unsigned short sid_count;   /*!< TODO the number of SIDs in the sids array */
     unsigned short nid_count;   /*!< TODO the number of NIDs in the nids array */
-    unsigned short sid;    /*!< TODO the array of SID values */
-	unsigned short nids;    /*!< TODO the array of NID valus*/
-};
+    unsigned short sids[20];    /*!< TODO the array of SID values */
+	unsigned short nids[20];    /*!< TODO the array of NID valus*/
+}SidNidInfoStruct;
 
 /// Defines a structure for accessing channel information
-public ref class ChannelParametersStruct
-{ 
-public: 
+typedef struct
+{
     unsigned short primary_a;       /*!< TODO Primay channel a*/
     unsigned short primary_b;       /*!< TODO Primary channel b*/
     unsigned short secondary_a;     /*!< TODO Secondary channel a*/
     unsigned short secondary_b;     /*!< TODO Secondary channel b*/
-};
+}ChannelParametersStruct;
 
 /*******************************************************************
 END Basic SDK API related types
@@ -1646,7 +1603,7 @@ Diagnostics and Field Test related types
 /** \enum field_test_field_evdo_e_type
 This enum defines values that can be used to parse data obtained from method GetFieldTestInfo for a CDMA/EVDO device.
 */
-public enum class field_test_field_evdo_e_type
+typedef enum 
 {
 	FT_MIN_EVDO					= 0,	/*!< Place Holder */
 	FT_WARRANTY_DATE			= 0,	/*!< Warranty Date */
@@ -1760,12 +1717,12 @@ public enum class field_test_field_evdo_e_type
 	FT_MIP_AAA_SPI				= 89,	/*!< MIP AAA SPI Value */
 	FT_ACQ_SID					= 90,	/*!< Acquired SID. SID of system in use.*/
 	FT_MAX_EVDO	
-} ;
+} field_test_field_evdo_e_type;
 
 /** \enum field_test_field_umts_e_type
 This enum defines values that can be used to parse data obtained from method GetFieldTestInfo for a UMTS/HSDPA device.
 */
-public enum class field_test_field_umts_e_type
+typedef enum 
 {
 	FT_MIN_UMTS					= 0,	/*!< Place Holder */
 	FT_CALL_MANAGER_STATE		= 0,	/*!< Call Manager State */		
@@ -1822,18 +1779,17 @@ public enum class field_test_field_umts_e_type
     FT_CELL_LAC                 = 51,   /*!< Cell LAC */
 	FT_RLC_BYTES_RX				= 52,   /*!< RLC Data Bearer Channel */
 	FT_MAX_UMTS	
-} ;
+} field_test_field_umts_e_type;
 
-public ref class StringStruct{
-    char^    str;    /*!< The string value*/
-};
+typedef struct{
+    char    str[STRING_LEN];    /*!< The string value*/
+}StringStruct;
 
-public ref class FieldTestInfoStruct
-{
-    StringStruct^    labels;    /*!< Array of field test info names */
-    StringStruct^    values;    /*!< Array of field test info values */
+typedef struct{
+    StringStruct    labels[FT_MAX_EVDO];    /*!< Array of field test info names */
+    StringStruct    values[FT_MAX_EVDO];    /*!< Array of field test info values */
 	unsigned long	size;                   /*!< Number of entries inthe labels and values field */
-};
+}FieldTestInfoStruct;
 /*******************************************************************
 End Diagnostics and Field Test related types
 ********************************************************************/
@@ -1844,9 +1800,8 @@ Connectivity related types
 ********************************************************************/
 // Defines an API structure used to hold the Quality of Service settings to use for GSM data connections.
 /// \n /// <tt><b>\<UMTS and HSDPA devices only\></b></tt>
-public ref class QosSettingsStruct
-{ 
-public: 
+typedef struct
+{
     long    MaxSduSize;             /*!< A numeric parameter (1,2,3,etc) that indicates the maximum allowed SDU size in octets. 
                                         \n If the parameter is set to '0' the subscribed value will be requested. */
 
@@ -1892,36 +1847,34 @@ public:
     long    TrafficHandling;        /*!< A numeric parameter (1,2,3,etc) that specifies the relative importance for handling of all SDUs belonging to the UMTS bearer compared to the SDUs of other bearers.
 		                                \n If the parameter is set to '0' the subscribed value will be requested. */
 
-    char^    ResErrorRatio;       /*!< A string parameter that indicates the target value for the undetected bit error ratio in the delivered SDUs.
+    char    ResErrorRatio[5];       /*!< A string parameter that indicates the target value for the undetected bit error ratio in the delivered SDUs.
                                          \n If no error detection is requested, Residual bit error ratio indicates the bit error ratio in the delivered SDUs.
 		                                 \n The value is specified as 'mEe'. As an example a target residual bit error ratio of 5\b .10<sup>-3 </sup> would be specified as '5E3'. 
                                          \n '0E0' means subscribed value. */
 
-    char^    SDUErrorRatio;       /*!< A string parameter that indicates the target value for the fraction of SDUs lost or detected as erroneous. 
+    char    SDUErrorRatio[5];       /*!< A string parameter that indicates the target value for the fraction of SDUs lost or detected as erroneous. 
                                         \n SDU error ratio is defined only for conforming traffic.
                                 		\n  The value is specified as 'mEe'. As an example a target SDU error ratio of 5\b .10<sup>-3 </sup> would be specified as "5E3". 
                                         \n "0E0" means subscribed value. */
-};
+}QosSettingsStruct;
 
 /// Defines an API structure used to hold the APN settings for GSM data connections.
 /// \n /// <tt><b>\<UMTS and HSDPA devices only\></b></tt>
-public ref class ApnSettingsStruct
-{ 
-public: 
-    char^    APN;      /*!< The APN string to use for the connecton */
+typedef struct
+{
+    char    APN[STRING_LEN];      /*!< The APN string to use for the connecton */
     long    PDPAddress;         /*!< The PDP address to use for the connection. 0 means dynamic address */
     long    PDPType;            /*!< The PDPType to use for the connection. 0 means PPP, 1 means IP */
-};
+}ApnSettingsStruct;
 
 /// Defines a structure used to hold the general data connection settings.
-public ref class ConnectionSettingsStruct
-{ 
-public: 
-	char^    ConnectionName;   /*!< The name of the connection interface (Ras or Ndis name)*/
-	char^    Username;         /*!< The user name to use for the connection */
-	char^    Password;         /*!< The password to use for the connection */
-	char^    DialString;       /*!< The dial string to use for the connection */
-	char^    VpnProfile;       /*!< A VPN profile to launch when a connection is created.  (RAS connections on Windows only)*/
+typedef struct
+{
+    char    ConnectionName[STRING_LEN];   /*!< The name of the connection interface (Ras or Ndis name)*/
+    char    Username[STRING_LEN];         /*!< The user name to use for the connection */
+    char    Password[STRING_LEN];         /*!< The password to use for the connection */
+    char    DialString[STRING_LEN];       /*!< The dial string to use for the connection */    
+    char    VpnProfile[STRING_LEN];       /*!< A VPN profile to launch when a connection is created.  (RAS connections on Windows only)*/
     long    UseVpn;                     /*!< Flag specifying that a VPN should be used. (RAS connections on Windows only)*/
     long    IPAddress;                  /*!< Specifies a fixed IP address that should be used for the connection */
     long    PrimaryDNSAddress;          /*!< Specifies a primary DNS that should be used for the connection (Windows only)*/
@@ -1929,44 +1882,43 @@ public:
     long    PrimaryWINSAddress;         /*!< Specifies a primary WINS that should be used for the connection (Windows only)*/
     long    SecondaryWINSAddress;       /*!< Specifies a secondary WINS that should be used for the connection (Windows only)*/
     long    AuthenticationType;         /*!< The authentication type that should be used for the connection.  0 = Automatic, 1 = Password Authentication, 2 = Challenge and Response (Windows Only) */
-};
+}ConnectionSettingsStruct;
 
 /** \struct ConnectionStatusStruct
 This structure is used to hold data connection information.
 It is used with method GetConnectionStatus().
 */
-public ref class ConnectionStatusStruct
-{ 
-public: 
+typedef struct
+{
     long    status;             /*!< The status of the connection as defined by the ConnectionState enum */
     long    bytesIn;            /*!< The number of bytes received during a connection */
     long    bytesOut;           /*!< The number of bytes sent during a connection */
     long    duration;           /*!< The elapsed time in seconds of a connection */
     long    error;              /*!< A connection related error code, IE a RAS error code on Windows */
-    char^   ipAddress;      /*!< The IP Address of a connection */
-};
+    char    ipAddress[18];      /*!< The IP Address of a connection */
+}ConnectionStatusStruct;
 
 /// \enum ConnectionModeType
 /// This enum defines the possible connection mode values.
-public enum class ConnectionModeType
+typedef enum
 {
     CONNECTION_MODE_ETHERNET_MANUAL  = 0x00,     /*!< Manual ethernet mode. Connection is seen as a standard NIC and connection is controlled manually by the user (NDIS on Windows ) */   
     CONNECTION_MODE_ETHERNET_AUTO    = 0x01,     /*!< Automatic ethernet mode. Connection is seen as a standard NIC and connection is started automatically
                                                     whenever a device is inserted. (NDIS on Windows ) */
     CONNECTION_MODE_DIAL_UP          = 0x02,     /*!< Dial up networking mode (For example...RAS on Windows )*/    
     CONNECTION_MODE_MAX              = 0x03,     /*!< Dial up networking mode (For example...RAS on Windows )*/    
-};
+}ConnectionModeType;
 
 /// \enum ConnectionState
 /// This enum defines values for the state of the connection owned by the device.
-public enum class ConnectionState
+typedef enum 
 {
 	CONN_STATE_DISCONNECTED    = 0,	/*!< The device is disconnected */
 	CONN_STATE_CONNECTING      = 1,	/*!< A connection attempt has been made and the device is trying to connect   */
 	CONN_STATE_AUTHENTICATING  = 2,	/*!< A connection attempt has been made and the device is authenticating user credentials */
 	CONN_STATE_CONNECTED       = 3,	/*!< The device is connected   */
 	CONN_STATE_DISABLED        = 4,	/*!< The device is disabled   */
-} ;
+} ConnectionState;
 
 /*******************************************************************
 END Connectivity related types
@@ -1978,20 +1930,18 @@ END Connectivity related types
 /*******************************************************************
 Firmware related types
 ********************************************************************/
-public ref class FirmwareImageInfoStruct
-{ 
-public: 
+typedef struct
+{
     char			*path; 
     unsigned long	firmwareID;
     unsigned long	technology;
     unsigned long	carrier;
     unsigned long	region;
     unsigned long	GPSCapability;
-} ;
+} FirmwareImageInfoStruct;
 /*******************************************************************
 END Firmware related types
 ********************************************************************/
-}
 #endif //_NVTL_GOBI_FW_DEFS_
 
 #pragma pack(pop)
