@@ -9,16 +9,53 @@ Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e0
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Class NvtlApiWrapper.ApiWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    AttachDevice(DeviceDetail): PrivateScope, Public, HideBySig
-    Init(): PrivateScope, Public, HideBySig
 Class NvtlApiWrapper.DeviceDetailManaged: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     DeviceTechType eTechnology : Public
     DeviceFormFactorType eFormFactor : Public
-    SByte[] szDescription : Public
-    SByte[] szPort : Public
-    SByte[] szFriendlyName : Public
+    System.String szDescription : Public
+    System.String szPort : Public
+    System.String szFriendlyName : Public
+Class NvtlApiWrapper.NetworkInfoManaged: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.StandardEventManaged: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 val IsLong : Public
+Class NvtlApiWrapper.ApiWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Events:
+    DeviceDataReceivedDelegate DeviceDataReceived: SpecialName
+  Methods:
+    add_DeviceDataReceived(DeviceDataReceivedDelegate): PrivateScope, Public, HideBySig, SpecialName
+    remove_DeviceDataReceived(DeviceDataReceivedDelegate): PrivateScope, Public, HideBySig, SpecialName
+    raise_DeviceDataReceived(Object, NvtlEventTypeManaged, UInt32 IsLong, StandardEventManaged): PrivateScope, Public, HideBySig, SpecialName
+    Init(): PrivateScope, Public, HideBySig
+    AttachDevice(DeviceDetailManaged): PrivateScope, Public, HideBySig
+    GetAvailableDevices(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class NvtlApiWrapper.ApiWrapper+EventHandlerDelegate: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Void*, UInt32 IsLong, UInt32 IsLong, Void*): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Void*, UInt32 IsLong, UInt32 IsLong, Void*, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class NvtlApiWrapper.ApiWrapper+DeviceDataReceivedDelegate: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, NvtlEventTypeManaged, UInt32 IsLong, StandardEventManaged): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, NvtlEventTypeManaged, UInt32 IsLong, StandardEventManaged, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Struct NvtlApiWrapper.DeviceStateTypeManaged: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+Struct NvtlApiWrapper.NvtlEventTypeManaged: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName

@@ -3,13 +3,8 @@
 * Copyright 2008 Novatel Wireless Inc.
 *
 */
-
-
 #include "stdafx.h"
 #include "SdkWrapper.h"
-
-using namespace System;
-using namespace System::Runtime::InteropServices;
 
 SdkWrapper::SdkWrapper()
 {
@@ -609,96 +604,3 @@ unsigned short SdkWrapper::DomainAttach( PropertyAction bPropAction, unsigned sh
 	
 	return fpNvtlGsm_DomainAttach(m_session, bPropAction, val);
 }
-
-short NvtlApiWrapper::ApiWrapper::AttachDevice(DeviceDetail pDeviceDetail)
-{
-	return 0;
-}
-
-bool NvtlApiWrapper::ApiWrapper::Init()
-{
-	_sdk = new SdkWrapper;
-	//Check to see if SDK loaded okay
-	if (!_sdk->IsLoaded())
-	{		
-		return false;
-	}
-		
-	short rval = _sdk->CreateSession();
-
-	_cb = new NvtlEventCallback;
-
-	_cb->user_data = 0;
-	EventHandlerDelegate^ delegate = gcnew EventHandlerDelegate(this, &NvtlApiWrapper::ApiWrapper::EventHandler);
-	System::IntPtr unmanaged = Marshal::GetFunctionPointerForDelegate(delegate);
-	_cb->event_func = (NvtlSdkEventFunc)(void*)unmanaged;
-	rval = _sdk->RegisterEventCallback(*_cb);	
-}
-
-void NvtlApiWrapper::ApiWrapper::EventHandler(void* user_data, unsigned long type, unsigned long size, void* ev)
-{
-	switch (type)
-	{
-	case NW_EVENT_SIG_STR:
-		printf("Signal Strength Received = %ld\n", ((SigStrEvent*)ev)->val);
-		break;
-
-	case NW_EVENT_ROAMING:
-		printf("Roaming Status Received = %ld\n", ((RoamingEvent*)ev)->val);
-		break;
-
-	case NW_EVENT_SERVER_ERROR:
-		printf("EVENT SERVER ERROR = %ld\n", ((ServerErrorEvent*)ev)->val);
-		break;
-
-	case NW_EVENT_DEVICE_STATE:
-	{
-		printf("Device State Recevied = %ld\n", ((DeviceStateEvent*)ev)->val);
-		//gDeviceState = ((DeviceStateEvent*)ev)->val;
-	}
-		break;
-
-	case NW_EVENT_NETWORK:
-		printf("EVENT NETWORK = %ld\n", ((NetworkEvent*)ev)->val);
-		break;
-
-	case NW_EVENT_DEVICE_ADDED:
-	{
-		printf("A new device was detected\n");
-		//gDeviceAvailable = 1;
-	}
-		break;
-
-	case NW_EVENT_DEVICE_REMOVED:
-		printf("A device was removed\n");
-		break;
-	}
-}
-
-
-array<NvtlApiWrapper::DeviceDetailManaged^>^ NvtlApiWrapper::ApiWrapper::GetAvailableDevices()
-{
-	unsigned long devlistSize = 5;
-	memset(_device_list, 0, 5 * sizeof(DeviceDetail));
-	_sdk->GetAvailableDevices(_device_list, &devlistSize);
-	return nullptr;
-	///TODO:
-}
-/*   //Check to see if SDK loaded okay
-if( !sdk.IsLoaded() )
-{
-printf("SDK unavailable, aborting\n");
-return 0;
-}
-
-//create a session with the dll so we can access devices
-printf("Creating an SDK session\n");
-rval = sdk.CreateSession();
-
-//Setup an event callback handler to receive events
-printf("Registering SDK callback\n");
-cb.user_data = 0;
-cb.event_func = EventHandler;
-rval = sdk.RegisterEventCallback( cb );*/
-
-	

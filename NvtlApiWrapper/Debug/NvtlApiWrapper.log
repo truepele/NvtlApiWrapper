@@ -1,21 +1,27 @@
-﻿Build started 7/8/2014 9:25:57 PM.
+﻿Build started 7/9/2014 4:58:08 PM.
      1>Project "C:\Projects\pele\NvtlApiWrapper\NvtlApiWrapper\NvtlApiWrapper.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\NvtlApiWrapper.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib Stdafx.cpp
          Stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\NvtlApiWrapper.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib AssemblyInfo.cpp SdkWrapper.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\NvtlApiWrapper.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib AssemblyInfo.cpp SdkWrapper.cpp SdkWrapperManaged.cpp
          AssemblyInfo.cpp
          SdkWrapper.cpp
-     1>c:\projects\pele\nvtlapiwrapper\nvtlapiwrapper\SdkWrapper.h(377): error C2065: 'DeviceDetailManaged' : undeclared identifier
-     1>c:\projects\pele\nvtlapiwrapper\nvtlapiwrapper\SdkWrapper.h(377): error C2923: 'cli::array' : 'DeviceDetailManaged' is not a valid template type argument for parameter 'Type'
-     1>c:\projects\pele\nvtlapiwrapper\nvtlapiwrapper\SdkWrapper.h(377): warning C4677: 'GetAvailableDevices': signature of non-private member contains assembly private type 'cli::array'
-     1>SdkWrapper.cpp(680): error C2556: 'cli::array<NvtlApiWrapper::DeviceDetailManaged ^,1> ^NvtlApiWrapper::ApiWrapper::GetAvailableDevices(void)' : overloaded function differs only by return type from 'cli::array ^NvtlApiWrapper::ApiWrapper::GetAvailableDevices(void)'
-                 c:\projects\pele\nvtlapiwrapper\nvtlapiwrapper\SdkWrapper.h(377) : see declaration of 'NvtlApiWrapper::ApiWrapper::GetAvailableDevices'
-     1>SdkWrapper.cpp(680): error C2373: 'NvtlApiWrapper::ApiWrapper::GetAvailableDevices' : redefinition; different type modifiers
-                 c:\projects\pele\nvtlapiwrapper\nvtlapiwrapper\SdkWrapper.h(377) : see declaration of 'NvtlApiWrapper::ApiWrapper::GetAvailableDevices'
+         SdkWrapperManaged.cpp
          Generating Code...
-     1>Done Building Project "C:\Projects\pele\NvtlApiWrapper\NvtlApiWrapper\NvtlApiWrapper.vcxproj" (Rebuild target(s)) -- FAILED.
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /analyze- /errorReport:prompt "C:\Users\APelesh\AppData\Local\Temp\.NETFramework,Version=v4.5.AssemblyAttributes.cpp"
+         .NETFramework,Version=v4.5.AssemblyAttributes.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\app.res" app.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Projects\pele\NvtlApiWrapper\Debug\NvtlApiWrapper.dll" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Projects\pele\NvtlApiWrapper\Debug\NvtlApiWrapper.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL Debug\app.res
+         Debug\AssemblyInfo.obj
+         Debug\SdkWrapper.obj
+         Debug\SdkWrapperManaged.obj
+         Debug\Stdafx.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+         NvtlApiWrapper.vcxproj -> C:\Projects\pele\NvtlApiWrapper\Debug\NvtlApiWrapper.dll
+     1>Done Building Project "C:\Projects\pele\NvtlApiWrapper\NvtlApiWrapper\NvtlApiWrapper.vcxproj" (Rebuild target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:01.15
+Time Elapsed 00:00:02.56

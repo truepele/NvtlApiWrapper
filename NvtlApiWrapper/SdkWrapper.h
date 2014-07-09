@@ -27,7 +27,7 @@
 #define Gps_OBJECT_NAME	        "NvtlGps.dll"
 #define FileManager_OBJECT_NAME	"NvtlFile.dll"
 #define SmsEncoder_OBJECT_NAME	"NvtlEnc.dll"
-#define Gobi_OBJECT_NAME		"NvtlGobi.dll"
+
 
 #define LOAD_FUNCTION_PTR( funcPtr, funcType, funcName , handle ) \
     if( ! funcPtr ) { \
@@ -366,36 +366,4 @@ class SdkWrapper
 
 };
 
-
-namespace NvtlApiWrapper
-{
-	public ref class ApiWrapper
-	{
-		delegate void EventHandlerDelegate(void* user_data, unsigned long type, unsigned long size, void* ev);
-	public:		
-		short AttachDevice(DeviceDetail pDeviceDetail);
-		array<DeviceDetailManaged>^ GetAvailableDevices();
-		bool Init();
-
-	private:
-		SdkWrapper *_sdk;
-		NvtlEventCallback	*_cb;
-		DeviceInfoStruct	*_device_info;
-		NetworkInfoStruct	*_network_info;
-		DeviceDetail	*_device_list;
-
-		void EventHandler(void* user_data, unsigned long type, unsigned long size, void* ev);
-		
-	};
-
-	public ref class DeviceDetailManaged
-	{
-	public:
-		DeviceTechType          eTechnology;		         /*!< technology type of the device */
-		DeviceFormFactorType    eFormFactor;				 /*!< physical form factor */
-		array<char>^            szDescription;	 /*!< general name of the device */
-		array<char>^            szPort;         /*!< name of the modem port */
-		array<char>^            szFriendlyName; /*!< friendly name of the modem port */
-	};
-}
 #endif
