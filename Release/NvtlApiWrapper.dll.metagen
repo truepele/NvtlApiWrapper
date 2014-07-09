@@ -1,0 +1,94 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly NvtlApiWrapper, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class NvtlApiWrapper.DeviceDetailManaged: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    DeviceTechType eTechnology : Public
+    DeviceFormFactorType eFormFactor : Public
+    System.String szDescription : Public
+    System.String szPort : Public
+    System.String szFriendlyName : Public
+Class NvtlApiWrapper.NetworkInfoManaged: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NvtlApiWrapper.StandardEventManaged: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 val IsLong : Public
+Class NvtlApiWrapper.ApiWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Events:
+    DeviceDataReceivedDelegate DeviceDataReceived: SpecialName
+  Methods:
+    add_DeviceDataReceived(DeviceDataReceivedDelegate): PrivateScope, Public, HideBySig, SpecialName
+    remove_DeviceDataReceived(DeviceDataReceivedDelegate): PrivateScope, Public, HideBySig, SpecialName
+    raise_DeviceDataReceived(Object, NvtlEventTypeManaged, UInt32 IsLong, UInt32 IsLong): PrivateScope, Public, HideBySig, SpecialName
+    ReleaseSession(): PrivateScope, Public, HideBySig
+    DetachDevice(): PrivateScope, Public, HideBySig
+    Init(): PrivateScope, Public, HideBySig
+    AttachDevice(DeviceDetailManaged): PrivateScope, Public, HideBySig
+    GetAvailableDevices(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class NvtlApiWrapper.ApiWrapper+EventHandlerDelegate: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Void*, UInt32 IsLong, UInt32 IsLong, Void*): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Void*, UInt32 IsLong, UInt32 IsLong, Void*, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class NvtlApiWrapper.ApiWrapper+DeviceDataReceivedDelegate: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, NvtlEventTypeManaged, UInt32 IsLong, UInt32 IsLong): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, NvtlEventTypeManaged, UInt32 IsLong, UInt32 IsLong, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Struct NvtlApiWrapper.DeviceStateTypeManaged: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+Struct NvtlApiWrapper.NvtlEventTypeManaged: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_SIG_STR = 0 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_ROAMING = 1 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_DEVICE_STATE = 2 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_DORMANT = 3 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_NETWORK = 4 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_SERVER_ERROR = 5 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_POWER_SAVE_NOTIFY = 6 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_LOG_PACKET = 7 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_DIAG_PACKET = 8 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_UNSOLICITED_AT = 9 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_SMS = 10 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_INCOMING_CALL = 11 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_DEVICE_ADDED = 12 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_DEVICE_REMOVED = 13 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_ACTIVATION = 14 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_OMADM = 15 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_SMS_SEND_STATUS = 16 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_GPS = 17 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_DEVICE_ERROR = 18 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_GPS_XTRA_STATUS = 19 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_TIME_SYNC_STATUS = 20 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_DEVICE_ATTACHED = 21 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_DEVICE_DETACHED = 22 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_MIP_ERROR = 23 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_GPS_XTRA_DOWNLOAD_REQ = 24 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_GPS_XTRA_TIMEINFO_REQ = 25 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_GPS_XTRA_CMD_ERR = 26 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_GPS_XTRA_DOWNLOAD_STATUS = 27 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_GPS_SMS_FILTER = 28 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_GPS_SECURITY = 29 : Public, Static, Literal, HasDefault
+    NvtlApiWrapper.NvtlEventTypeManaged NW_EVENT_GPS_CMD_ERROR = 30 : Public, Static, Literal, HasDefault
