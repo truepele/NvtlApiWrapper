@@ -17,7 +17,11 @@ NvtlApiWrapper::ApiWrapper::ApiWrapper()
 	_cb->user_data = 0;
 	_eventHandlerDelegate = gcnew EventHandlerDelegate(this, &NvtlApiWrapper::ApiWrapper::NativeEventHandler);
 	_pUnmanagedEventHandler = Marshal::GetFunctionPointerForDelegate(_eventHandlerDelegate);
+<<<<<<< HEAD
 	_cb->event_func = (NvtlSdkEventFunc)_pUnmanagedEventHandler.ToInt32();
+=======
+	_cb->event_func = (NvtlSdkEventFunc)(void*)_pUnmanagedEventHandler;
+>>>>>>> origin/master
 }
 
 NvtlApiWrapper::ApiWrapper::~ApiWrapper()
@@ -50,7 +54,13 @@ unsigned short NvtlApiWrapper::ApiWrapper::AttachDevice(DeviceDetailManaged^ dev
 
 	strcpy(pDevDetail->szDescription, StringToUnmanaged(deviceDetail->szDescription));
 	strcpy(pDevDetail->szPort, StringToUnmanaged(deviceDetail->szPort));
+<<<<<<< HEAD
 	strcpy(pDevDetail->szFriendlyName, StringToUnmanaged(deviceDetail->szFriendlyName));*/		
+=======
+	strcpy(pDevDetail->szFriendlyName, StringToUnmanaged(deviceDetail->szFriendlyName));*/
+
+	
+>>>>>>> origin/master
 
 	return result;
 }
@@ -72,7 +82,10 @@ bool NvtlApiWrapper::ApiWrapper::Init()
 	}
 
 	short rval = _sdk->CreateSession();
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 	rval = _sdk->RegisterEventCallback(*_cb);
 
 	return true;
@@ -80,6 +93,7 @@ bool NvtlApiWrapper::ApiWrapper::Init()
 
 void NvtlApiWrapper::ApiWrapper::NativeEventHandler(void* user_data, unsigned long type, unsigned long size, void* ev)
 {
+<<<<<<< HEAD
 	if (_deviceDataReceivedDelegate != nullptr && _deviceDataReceivedDelegate->GetInvocationList()->Length>0)
 	{
 		try
@@ -102,6 +116,30 @@ void NvtlApiWrapper::ApiWrapper::NativeEventHandler(void* user_data, unsigned lo
 		catch (Exception^ e)
 		{}
 	}
+=======
+	//if (_deviceDataReceivedDelegate != nullptr && _deviceDataReceivedDelegate->GetInvocationList()->Length>0)
+	//{
+	//	try
+	//	{
+	//		//switch (type)
+	//		//{
+	//		//	/*case NW_EVENT_SIG_STR:
+	//		//	case NW_EVENT_ROAMING:
+	//		//	case NW_EVENT_SERVER_ERROR:
+	//		//	case NW_EVENT_DEVICE_STATE:
+	//		//	case NW_EVENT_NETWORK:
+	//		//	case NW_EVENT_DEVICE_ADDED:
+	//		//	case NW_EVENT_DEVICE_REMOVED:
+	//		//	case NW_EVENT_DEVICE_DETACHED:*/
+	//		//	case NW_EVENT_DEVICE_ATTACHED:
+	//		//		//_deviceDataReceivedDelegate(nullptr, (NvtlEventTypeManaged)type, size, 0);
+	//		//		break;
+	//		//}
+	//	}
+	//	catch (Exception^ e)
+	//	{}
+	//}
+>>>>>>> origin/master
 }
 
 array<NvtlApiWrapper::DeviceDetailManaged^>^ NvtlApiWrapper::ApiWrapper::GetAvailableDevices()
@@ -148,7 +186,10 @@ void NvtlApiWrapper::ApiWrapper::DetachDevice()
 
 void NvtlApiWrapper::ApiWrapper::ReleaseSession()
 {
+<<<<<<< HEAD
 	_sdk->UnregisterEventCallback(*_cb);
+=======
+>>>>>>> origin/master
 	_sdk->ReleaseSession();
 }
 
