@@ -209,8 +209,8 @@ class SdkWrapper
 		unsigned short DetachDevice();
 		unsigned short GetAvailableDevices( DeviceDetail* pDevList, unsigned long* dev_list_size );
 		unsigned short SetDeviceAccessKey( char *accessKey );
-        unsigned short RegisterEventCallback( NvtlEventCallback& cb );
-		unsigned short UnregisterEventCallback( NvtlEventCallback& cb );
+		unsigned short RegisterEventCallback();
+		unsigned short UnregisterEventCallback();
 		unsigned short GetNetworkInfo( NetworkInfoStruct* pNetworkInfo );
 		unsigned short GetDeviceInfo( DeviceInfoStruct* pDeviceInfo );
 		unsigned short ReadContact(short index, ContactInfoStruct* pContact);
@@ -280,11 +280,18 @@ class SdkWrapper
         unsigned short GetEsnAsDecimal( char* decESN, unsigned short* decEsn_len );
 
         SdkHandle	m_session;
+		unsigned long SignalStrenght = 0;
+		unsigned long DeviceError = 0;
+		unsigned long AttachedDevicesCount = 0;
+
 	private:
 		OBJECT_TYPE	m_hDll;
+		NvtlEventCallback _cb;
+		NvtlSdkEventFunc *_callbackFunc;	
 		
 
 		void		ClearFunctionPointers();
+		static void EventHandler(void* user_data, unsigned long type, unsigned long size, void* ev);
 
         Func_NvtlCommon_GetSdkVersion               fpNvtlCommon_GetSdkVersion;
 		Func_NvtlCommon_CreateSession				fpNvtlCommon_CreateSession;

@@ -27,17 +27,16 @@ Class NvtlApiWrapper.ApiWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFie
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Interfaces:
     System.IDisposable
-  Events:
-    DeviceDataReceivedDelegate DeviceDataReceived: SpecialName
   Methods:
-    add_DeviceDataReceived(DeviceDataReceivedDelegate): PrivateScope, Public, HideBySig, SpecialName
-    remove_DeviceDataReceived(DeviceDataReceivedDelegate): PrivateScope, Public, HideBySig, SpecialName
-    raise_DeviceDataReceived(Object, NvtlEventTypeManaged, UInt32 IsLong, UInt32 IsLong): PrivateScope, Public, HideBySig, SpecialName
     ReleaseSession(): PrivateScope, Public, HideBySig
     DetachDevice(): PrivateScope, Public, HideBySig
     Init(): PrivateScope, Public, HideBySig
     AttachDevice(DeviceDetailManaged): PrivateScope, Public, HideBySig
     GetAvailableDevices(): PrivateScope, Public, HideBySig
+    getSignalStrenght(): PrivateScope, Public, HideBySig
+    getDeviceError(): PrivateScope, Public, HideBySig
+    getAttachedDevicesCount(): PrivateScope, Public, HideBySig
+    IsOK(): PrivateScope, Public, HideBySig
     Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
 Class NvtlApiWrapper.ApiWrapper+EventHandlerDelegate: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
   :System.MulticastDelegate

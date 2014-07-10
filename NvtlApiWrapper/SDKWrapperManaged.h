@@ -118,16 +118,16 @@ namespace NvtlApiWrapper
 		NW_DEVICE_STATE_NOCARD = 1,  /*!< No device has been detected */
 		NW_DEVICE_STATE_INITIALIZING = 2,  /*!< The SDK has recognized a device and is currently in the process of connecting to and initializing it for use.
 										   * Generally the device is not yet ready for normal operation and clients should wait until the SDK leaves this state before proceeding. */
-										   NW_DEVICE_STATE_DISABLED = 3,  /*!< Indicates that a valid device is detected but is disabled. This is generally due to a software or hardware control switch being turned off on the host. */
-										   NW_DEVICE_STATE_LOCKED = 4,  /*!< Indicates that a device is detected but is currently locked and requires a PIN or PUK to be entered before use. */
-										   NW_DEVICE_STATE_SEARCHING = 5,  /*!< Indicates that the device is available and is currently searching for network service. */
-										   NW_DEVICE_STATE_IDLE = 6,  /*!< Indicates that the device is available for general use. This state indicates the normal ready state of the device. */
-										   NW_DEVICE_STATE_CONNECTING = 7,  /*!< A connection attempt has been made and the device is trying to establish a data connection. */
-										   NW_DEVICE_STATE_AUTHENTICATING = 8,  /*!< A connection attempt has been made and the device is authenticating user credentials for the data connection. */
-										   NW_DEVICE_STATE_CONNECTED = 9,  /*!< Indicates that the device has an active data connection */
-										   NW_DEVICE_STATE_RESERVED_2 = 10, /*!< <tt><b>(not used)</b></tt> */
-										   NW_DEVICE_STATE_ACTIVATION = 11, /*!< <tt><b>(not used)</b></tt> */
-										   NW_DEVICE_STATE_NULL = 0xFF /*!< <tt><b>(not used)</b></tt> */
+		NW_DEVICE_STATE_DISABLED = 3,  /*!< Indicates that a valid device is detected but is disabled. This is generally due to a software or hardware control switch being turned off on the host. */
+		NW_DEVICE_STATE_LOCKED = 4,  /*!< Indicates that a device is detected but is currently locked and requires a PIN or PUK to be entered before use. */
+		NW_DEVICE_STATE_SEARCHING = 5,  /*!< Indicates that the device is available and is currently searching for network service. */
+		NW_DEVICE_STATE_IDLE = 6,  /*!< Indicates that the device is available for general use. This state indicates the normal ready state of the device. */
+		NW_DEVICE_STATE_CONNECTING = 7,  /*!< A connection attempt has been made and the device is trying to establish a data connection. */
+		NW_DEVICE_STATE_AUTHENTICATING = 8,  /*!< A connection attempt has been made and the device is authenticating user credentials for the data connection. */
+		NW_DEVICE_STATE_CONNECTED = 9,  /*!< Indicates that the device has an active data connection */
+		NW_DEVICE_STATE_RESERVED_2 = 10, /*!< <tt><b>(not used)</b></tt> */
+		NW_DEVICE_STATE_ACTIVATION = 11, /*!< <tt><b>(not used)</b></tt> */
+		NW_DEVICE_STATE_NULL = 0xFF /*!< <tt><b>(not used)</b></tt> */
 	};
 
 	public enum class NvtlEventTypeManaged
@@ -148,26 +148,26 @@ namespace NvtlApiWrapper
 		NW_EVENT_DEVICE_REMOVED,        /*!< A device was removed from the host.  The handler event receives a pointer to a DeviceRemovedEvent struct.
 										This event is fired when ANY device removal is detected and may not pertain to the active device in use if multiple
 										devices are recognized in the system.  To detect the removal of a device currently in use handle the NW_EVENT_DEVICE_ERROR event.*/
-										NW_EVENT_ACTIVATION,            /*!< The SDK received an activation status update.  The handler event receives a pointer to a ActivationEvent struct */
-										NW_EVENT_OMADM,                 /*!< The SDK received an OMA-DM status update. The handler event receives a pointer to a OmaStatusEvent struct */
-										NW_EVENT_SMS_SEND_STATUS,       /*!< The SDK received an Sms send status update. The handler event receives a pointer to a SmsSentEvent struct */
-										NW_EVENT_GPS,	                /*!< The SDK received a GPS event.   The handler event receives a pointer to a GpsEvent struct */
-										NW_EVENT_DEVICE_ERROR,          /*!< Indicates that there was an error with the device and communication with the device has stopped.
+		NW_EVENT_ACTIVATION,            /*!< The SDK received an activation status update.  The handler event receives a pointer to a ActivationEvent struct */
+		NW_EVENT_OMADM,                 /*!< The SDK received an OMA-DM status update. The handler event receives a pointer to a OmaStatusEvent struct */
+		NW_EVENT_SMS_SEND_STATUS,       /*!< The SDK received an Sms send status update. The handler event receives a pointer to a SmsSentEvent struct */
+		NW_EVENT_GPS,	                /*!< The SDK received a GPS event.   The handler event receives a pointer to a GpsEvent struct */
+		NW_EVENT_DEVICE_ERROR,          /*!< Indicates that there was an error with the device and communication with the device has stopped.
 																		For example the deivce was removed while in use.  The handler event receives a pointer to a DeviceErrorEvent struct.
 																		Use this event as an indication of a plug-n-play removal of a device that is currently being used by the SDK.*/
-																		NW_EVENT_GPS_XTRA_STATUS,		/*!< Reports the status of the XTRA file Download and Injection into the device. The handler event receives a pointer to a XtraStatuEvent struct */
-																		NW_EVENT_TIME_SYNC_STATUS,		/*!< Reports the status of the Time sync from NTP server. The handler event receives a pointer to a XtraTimeSyncEvent struct */
-																		NW_EVENT_DEVICE_ATTACHED,       /*!< The current session has succesfully attached to a device   */
-																		NW_EVENT_DEVICE_DETACHED,       /*!< The current session has succesfully detached from a device */
-																		NW_EVENT_MIP_ERROR,             /*!< A Mobile IP error indication has been received from the device */
-																		NW_EVENT_GPS_XTRA_DOWNLOAD_REQ, /*!< Requests the XTRA file to be downloaded and injected into the device. The handler event receives a pointer to a XtraStatuEvent struct */
-																		NW_EVENT_GPS_XTRA_TIMEINFO_REQ, /*!< Requests the XTRA Time sync from the NTP server to be injected into the device. The handler event receives a pointer to a XtraStatuEvent struct */
-																		NW_EVENT_GPS_XTRA_CMD_ERR,      /*!< Indicates that the XTRA download or Time sync command was sent to the GPS engine incorrectly. */
-																		NW_EVENT_GPS_XTRA_DOWNLOAD_STATUS, /*!< Indicates that the status of XTRA download or Time sync command as reported by the firmware. */
-																		NW_EVENT_GPS_SMS_FILTER,        /*!< Reports a specialized GPS directed SMS was received.  Only for VZW LBS services */
-																		NW_EVENT_GPS_SECURITY,          /*!< Reports that gps security is initialized.  Only for VZW LBS services */
-																		NW_EVENT_GPS_CMD_ERROR,         /*!< Reports that a gps command failed. Only for VZW LBS services. */
-	};
+		NW_EVENT_GPS_XTRA_STATUS,		/*!< Reports the status of the XTRA file Download and Injection into the device. The handler event receives a pointer to a XtraStatuEvent struct */
+		NW_EVENT_TIME_SYNC_STATUS,		/*!< Reports the status of the Time sync from NTP server. The handler event receives a pointer to a XtraTimeSyncEvent struct */
+		NW_EVENT_DEVICE_ATTACHED,       /*!< The current session has succesfully attached to a device   */
+		NW_EVENT_DEVICE_DETACHED,       /*!< The current session has succesfully detached from a device */
+		NW_EVENT_MIP_ERROR,             /*!< A Mobile IP error indication has been received from the device */
+		NW_EVENT_GPS_XTRA_DOWNLOAD_REQ, /*!< Requests the XTRA file to be downloaded and injected into the device. The handler event receives a pointer to a XtraStatuEvent struct */
+		NW_EVENT_GPS_XTRA_TIMEINFO_REQ, /*!< Requests the XTRA Time sync from the NTP server to be injected into the device. The handler event receives a pointer to a XtraStatuEvent struct */
+		NW_EVENT_GPS_XTRA_CMD_ERR,      /*!< Indicates that the XTRA download or Time sync command was sent to the GPS engine incorrectly. */
+		NW_EVENT_GPS_XTRA_DOWNLOAD_STATUS, /*!< Indicates that the status of XTRA download or Time sync command as reported by the firmware. */
+		NW_EVENT_GPS_SMS_FILTER,        /*!< Reports a specialized GPS directed SMS was received.  Only for VZW LBS services */
+		NW_EVENT_GPS_SECURITY,          /*!< Reports that gps security is initialized.  Only for VZW LBS services */
+		NW_EVENT_GPS_CMD_ERROR,         /*!< Reports that a gps command failed. Only for VZW LBS services. */
+};
 
 	public ref class StandardEventManaged
 	{
@@ -185,24 +185,24 @@ namespace NvtlApiWrapper
 
 		delegate void DeviceDataReceivedDelegate(Object^ userData, NvtlEventTypeManaged eventType, ULONG size, ULONG value);
 
-		event DeviceDataReceivedDelegate^ DeviceDataReceived
-		{
-			void add(DeviceDataReceivedDelegate^ handler)
-			{
-				//just attach user handler to your private event
-				_deviceDataReceivedDelegate += handler;
-			}
-			void remove(DeviceDataReceivedDelegate^ handler)
-			{
-				//just detach the user handler from your private handler
-				_deviceDataReceivedDelegate -= handler;
-			}
-			void raise(Object^ userData, NvtlEventTypeManaged eventType, ULONG size, ULONG value)
-			{
-				//raise your private event
-				_deviceDataReceivedDelegate(userData, eventType, size, value);
-			}
-		};
+		//event DeviceDataReceivedDelegate^ DeviceDataReceived
+		//{
+		//	void add(DeviceDataReceivedDelegate^ handler)
+		//	{
+		//		//just attach user handler to your private event
+		//		_deviceDataReceivedDelegate += handler;
+		//	}
+		//	void remove(DeviceDataReceivedDelegate^ handler)
+		//	{
+		//		//just detach the user handler from your private handler
+		//		_deviceDataReceivedDelegate -= handler;
+		//	}
+		//	void raise(Object^ userData, NvtlEventTypeManaged eventType, ULONG size, ULONG value)
+		//	{
+		//		//raise your private event
+		//		_deviceDataReceivedDelegate(userData, eventType, size, value);
+		//	}
+		//};
 
 
 		void ReleaseSession();
@@ -214,6 +214,10 @@ namespace NvtlApiWrapper
 		bool Init();
 		unsigned short AttachDevice(DeviceDetailManaged^ deviceDetail);
 		array<DeviceDetailManaged^>^ GetAvailableDevices();
+		unsigned long getSignalStrenght();		
+		unsigned long getDeviceError();
+		unsigned long getAttachedDevicesCount();
+		bool IsOK();
 
 	private:
 		DeviceDataReceivedDelegate^ _deviceDataReceivedDelegate;
@@ -225,10 +229,7 @@ namespace NvtlApiWrapper
 		DeviceDetail	*_device_list;
 		unsigned long* _devlistSize;
 		EventHandlerDelegate^ _eventHandlerDelegate;
-		System::IntPtr _pUnmanagedEventHandler;
-
-		void NativeEventHandler(void* user_data, unsigned long type, unsigned long size, void* ev);
-		char* StringToUnmanaged(System::String^ stringManaged);
+		System::IntPtr _pUnmanagedEventHandler;		
 
 	};
 }

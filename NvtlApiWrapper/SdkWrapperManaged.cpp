@@ -12,13 +12,6 @@ NvtlApiWrapper::ApiWrapper::ApiWrapper()
 	_sdk = new SdkWrapper;
 	_devlistSize = new unsigned long[1];
 	_device_list = new DeviceDetail[5];
-
-	_cb = new NvtlEventCallback;
-	_cb->user_data = 0;
-	_eventHandlerDelegate = gcnew EventHandlerDelegate(this, &NvtlApiWrapper::ApiWrapper::NativeEventHandler);
-	_pUnmanagedEventHandler = Marshal::GetFunctionPointerForDelegate(_eventHandlerDelegate);
-	_cb->event_func = (NvtlSdkEventFunc)(void*)_pUnmanagedEventHandler;
-
 }
 
 NvtlApiWrapper::ApiWrapper::~ApiWrapper()
@@ -26,43 +19,23 @@ NvtlApiWrapper::ApiWrapper::~ApiWrapper()
 	delete _sdk;
 	delete _devlistSize;
 	delete _device_list;
-	delete _eventHandlerDelegate;
-	Marshal::FreeHGlobal(_pUnmanagedEventHandler);
-	delete _cb;
+	
 }
 
 unsigned short NvtlApiWrapper::ApiWrapper::AttachDevice(DeviceDetailManaged^ deviceDetail)
 {
 	DeviceDetail* pDevDetail;
-	unsigned short result = SHRT_MAX;
+	unsigned short result = SHRT_MAX;	
 
-	//for (unsigned long i = 0; i < *_devlistSize; i++)
-	//{
-	//	if (strcmp(_device_list[i].szPort, StringToUnmanaged(deviceDetail->szPort)) == 0)
-	//	{
-//			result = _sdk->AttachDevice(&_device_list[i]);
-//		}
-//	}
-
-	result = _sdk->AttachDevice(&_device_list[0]);
-
-	/*pDevDetail->eTechnology = deviceDetail->eTechnology;
-	pDevDetail->eFormFactor = deviceDetail->eFormFactor;
-
-	strcpy(pDevDetail->szDescription, StringToUnmanaged(deviceDetail->szDescription));
-	strcpy(pDevDetail->szPort, StringToUnmanaged(deviceDetail->szPort));
-
-	strcpy(pDevDetail->szFriendlyName, StringToUnmanaged(deviceDetail->szFriendlyName));*/
+	for (unsigned long i = 0; i < *_devlistSize; i++)
+	{
+		if (System::String::CompareOrdinal(deviceDetail->szPort, Marshal::PtrToStringAnsi((IntPtr)_device_list[i].szPort)) == 0)
+		{			
+			result = _sdk->AttachDevice(&_device_list[i]);
+		}
+	}
 
 	return result;
-}
-
-char* NvtlApiWrapper::ApiWrapper::StringToUnmanaged(System::String^ stringManaged)
-{
-	IntPtr p = Marshal::StringToHGlobalAnsi(stringManaged);
-	char *pNewCharStr = static_cast<char*>(p.ToPointer());
-	Marshal::FreeHGlobal(p);
-	return pNewCharStr;
 }
 
 bool NvtlApiWrapper::ApiWrapper::Init()
@@ -75,44 +48,13 @@ bool NvtlApiWrapper::ApiWrapper::Init()
 
 	short rval = _sdk->CreateSession();
 
-	rval = _sdk->RegisterEventCallback(*_cb);
+	rval = _sdk->RegisterEventCallback();
 
 	return true;
 }
 
-void NvtlApiWrapper::ApiWrapper::NativeEventHandler(void* user_data, unsigned long type, unsigned long size, void* ev)
-{
-	//if (_deviceDataReceivedDelegate != nullptr && _deviceDataReceivedDelegate->GetInvocationList()->Length>0)
-	//{
-	//	try
-	//	{
-	//		//switch (type)
-	//		//{
-	//		//	/*case NW_EVENT_SIG_STR:
-	//		//	case NW_EVENT_ROAMING:
-	//		//	case NW_EVENT_SERVER_ERROR:
-	//		//	case NW_EVENT_DEVICE_STATE:
-	//		//	case NW_EVENT_NETWORK:
-	//		//	case NW_EVENT_DEVICE_ADDED:
-	//		//	case NW_EVENT_DEVICE_REMOVED:
-	//		//	case NW_EVENT_DEVICE_DETACHED:*/
-	//		//	case NW_EVENT_DEVICE_ATTACHED:
-	//		//		//_deviceDataReceivedDelegate(nullptr, (NvtlEventTypeManaged)type, size, 0);
-	//		//		break;
-	//		//}
-	//	}
-	//	catch (Exception^ e)
-	//	{}
-	//}
-}
-
 array<NvtlApiWrapper::DeviceDetailManaged^>^ NvtlApiWrapper::ApiWrapper::GetAvailableDevices()
 {
-	//DeviceDetail device_list[5];	
-	
-	//_device_list = (DeviceDetail*)malloc(5 * sizeof(DeviceDetail));
-	//memset(_device_list, 0, *_devlistSize * sizeof(DeviceDetail));
-	//unsigned short count = 	
 	*_devlistSize = 5;
 	_sdk->GetAvailableDevices(_device_list, _devlistSize);
 
@@ -129,18 +71,30 @@ array<NvtlApiWrapper::DeviceDetailManaged^>^ NvtlApiWrapper::ApiWrapper::GetAvai
 			resultArray[i]->szPort = gcnew String(_device_list[i].szPort);
 		}
 
-		//array<NvtlApiWrapper::DeviceDetailManaged^>^ resultArray = gcnew array<NvtlApiWrapper::DeviceDetailManaged^>(1);
-		//resultArray[0] = gcnew DeviceDetailManaged();
-		
-		//resultArray[0]->szFriendlyName = Marshal::PtrToStringAnsi((IntPtr)(*_device_list).szFriendlyName);//gcnew String((*_device_list).szFriendlyName);
-		
 		return resultArray;
 	}
 	else
 	{
 		return nullptr;
-	}
-	///TODO:
+	}	
+}
+
+unsigned long NvtlApiWrapper::ApiWrapper::getSignalStrenght()
+{
+	return _sdk->SignalStrenght;
+}
+unsigned long NvtlApiWrapper::ApiWrapper::getDeviceError()
+{
+	return _sdk->DeviceError;
+}
+unsigned long NvtlApiWrapper::ApiWrapper::getAttachedDevicesCount()
+{
+	return _sdk->AttachedDevicesCount;
+}
+
+bool NvtlApiWrapper::ApiWrapper::IsOK()
+{
+	return _sdk->AttachedDevicesCount > 0 && _sdk->DeviceError == 0;
 }
 
 void NvtlApiWrapper::ApiWrapper::DetachDevice()
@@ -150,25 +104,6 @@ void NvtlApiWrapper::ApiWrapper::DetachDevice()
 
 void NvtlApiWrapper::ApiWrapper::ReleaseSession()
 {
-	_sdk->UnregisterEventCallback(*_cb);
+	_sdk->UnregisterEventCallback();
 	_sdk->ReleaseSession();
 }
-
-
-/*   //Check to see if SDK loaded okay
-if( !sdk.IsLoaded() )
-{
-printf("SDK unavailable, aborting\n");
-return 0;
-}
-
-//create a session with the dll so we can access devices
-printf("Creating an SDK session\n");
-rval = sdk.CreateSession();
-
-//Setup an event callback handler to receive events
-printf("Registering SDK callback\n");
-cb.user_data = 0;
-cb.event_func = EventHandler;
-rval = sdk.RegisterEventCallback( cb );*/
-

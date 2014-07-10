@@ -355,18 +355,120 @@ unsigned short SdkWrapper::SetDeviceAccessKey( char *szAccessKey )
 	
 	return fpNvtlCommon_SetDeviceAccessKey(m_session, szAccessKey);
 }
-unsigned short SdkWrapper::RegisterEventCallback( NvtlEventCallback& cb)
-{
+
+//
+unsigned short SdkWrapper::RegisterEventCallback()
+{	
     LOAD_FUNCTION_PTR( fpNvtlCommon_RegisterEventCallback, Func_NvtlCommon_RegisterEventCallback, "NvtlCommon_RegisterEventCallback", m_hDll );
-	
-	return fpNvtlCommon_RegisterEventCallback(m_session, cb);
+
+	if (_cb.event_func != nullptr)
+	{
+		UnregisterEventCallback();
+	}
+	_cb.user_data = this;
+	_cb.event_func = (NvtlSdkEventFunc)(SdkWrapper::EventHandler);	
+
+	return fpNvtlCommon_RegisterEventCallback(m_session, _cb);
 }
-unsigned short SdkWrapper::UnregisterEventCallback( NvtlEventCallback& cb)
+
+/* static */ void SdkWrapper::EventHandler(void* user_data, unsigned long type, unsigned long size, void* ev)
+{	
+	SdkWrapper* obj = (SdkWrapper*)user_data;	
+
+	switch (type)
+	{
+	case NW_EVENT_DEVICE_ERROR:          /*!< Indicates that there was an error with the device and communication with the device has stopped.
+										 For example the deivce was removed while in use.  The handler event receives a pointer to a DeviceErrorEvent struct.
+										 Use this event as an indication of a plug-n-play removal of a device that is currently being used by the SDK.*/
+		obj->DeviceError = ((StandardEvent*)ev)->val;
+		obj->AttachedDevicesCount = 0;
+		break;
+	case NW_EVENT_SIG_STR:/*!< The signal strength has changed.  The handler event receives a pointer to a SigStrEvent struct */
+		obj->SignalStrenght = ((StandardEvent*)ev)->val;
+		break;
+	case NW_EVENT_DEVICE_ATTACHED:       /*!< The current session has succesfully attached to a device   */		
+		obj->AttachedDevicesCount++;
+		printf("NW_EVENT_DEVICE_ATTACHED %d %d", ((StandardEvent*)ev)->val, obj->AttachedDevicesCount);
+		obj->DeviceError = 0;
+		break;
+	case NW_EVENT_DEVICE_DETACHED:       /*!< The current session has succesfully detached from a device */
+		obj->AttachedDevicesCount--;
+		printf("NW_EVENT_DEVICE_DETACHED %d %d", ((StandardEvent*)ev)->val, obj->AttachedDevicesCount);
+		break;
+	case NW_EVENT_ROAMING:               /*!< The roaming status has changed.   The handler event receives a pointer to a RoamingEvent struct */
+		break;
+	case NW_EVENT_DEVICE_STATE:          /*!< The device state has changed.   The handler event receives a pointer to a DeviceStateEvent struct */
+		break;
+	case NW_EVENT_DORMANT:               /*!< The dormancy status has changed.  The handler event receives a pointer to a DormantEvent struct */
+		break;
+	case NW_EVENT_NETWORK:               /*!< The network status has changed.   The handler event receives a pointer to a NetworkEvent struct */
+		break;
+	case NW_EVENT_SERVER_ERROR:          /*!< The SDK received a device error.  The handler event receives a pointer to a ServerErrorEvent struct */
+		break;
+	case NW_EVENT_POWER_SAVE_NOTIFY:     /*!< The device is entering low power mode.  */
+		break;
+	case NW_EVENT_LOG_PACKET:            /*!< not for general use */
+		break;
+	case NW_EVENT_DIAG_PACKET:           /*!< not for general use */
+		break;
+	case NW_EVENT_UNSOLICITED_AT:        /*!< An unsolicited AT response was received.  The handler event receives a pointer to a UnsolicitedATEvent struct */
+		break;
+	case NW_EVENT_SMS:                   /*!< A new sms message was received.  The handler event receives a pointer to a SmsEvent struct */
+		break;
+	case NW_EVENT_INCOMING_CALL:         /*!< not used */
+		break;
+	case NW_EVENT_DEVICE_ADDED:          /*!< A new device was recognized by the host.  The handler event receives a pointer to a DeviceAddedEvent struct */
+		break;
+	case NW_EVENT_DEVICE_REMOVED:        /*!< A device was removed from the host.  The handler event receives a pointer to a DeviceRemovedEvent struct.
+													This event is fired when ANY device removal is detected and may not pertain to the active device in use if multiple
+													devices are recognized in the system.  To detect the removal of a device currently in use handle the NW_EVENT_DEVICE_ERROR event.*/
+		break;
+	case NW_EVENT_ACTIVATION:            /*!< The SDK received an activation status update.  The handler event receives a pointer to a ActivationEvent struct */
+		break;
+	case NW_EVENT_OMADM:                 /*!< The SDK received an OMA-DM status update. The handler event receives a pointer to a OmaStatusEvent struct */
+		break;
+	case NW_EVENT_SMS_SEND_STATUS:       /*!< The SDK received an Sms send status update. The handler event receives a pointer to a SmsSentEvent struct */
+		break;
+	case NW_EVENT_GPS:	                /*!< The SDK received a GPS event.   The handler event receives a pointer to a GpsEvent struct */
+		break;	
+	case NW_EVENT_GPS_XTRA_STATUS:		/*!< Reports the status of the XTRA file Download and Injection into the device. The handler event receives a pointer to a XtraStatuEvent struct */
+		break;
+	case NW_EVENT_TIME_SYNC_STATUS:		/*!< Reports the status of the Time sync from NTP server. The handler event receives a pointer to a XtraTimeSyncEvent struct */
+		break;	
+	case NW_EVENT_MIP_ERROR:             /*!< A Mobile IP error indication has been received from the device */
+		break;
+	case NW_EVENT_GPS_XTRA_DOWNLOAD_REQ: /*!< Requests the XTRA file to be downloaded and injected into the device. The handler event receives a pointer to a XtraStatuEvent struct */
+		break;
+	case NW_EVENT_GPS_XTRA_TIMEINFO_REQ: /*!< Requests the XTRA Time sync from the NTP server to be injected into the device. The handler event receives a pointer to a XtraStatuEvent struct */
+		break;
+	case NW_EVENT_GPS_XTRA_CMD_ERR:      /*!< Indicates that the XTRA download or Time sync command was sent to the GPS engine incorrectly. */
+		break;
+	case NW_EVENT_GPS_XTRA_DOWNLOAD_STATUS: /*!< Indicates that the status of XTRA download or Time sync command as reported by the firmware. */
+		break;
+	case NW_EVENT_GPS_SMS_FILTER:        /*!< Reports a specialized GPS directed SMS was received.  Only for VZW LBS services */
+		break;
+	case NW_EVENT_GPS_SECURITY:				/*!< Reports that gps security is initialized.  Only for VZW LBS services */
+		break;
+	case NW_EVENT_GPS_CMD_ERROR:         /*!< Reports that a gps command failed. Only for VZW LBS services. */
+		break;
+	}
+
+	/*printf("SdkWrapper::EventHandler(..)");
+
+	if (SdkWrapper::_callbackFunc != nullptr)
+	{		
+		printf("SdkWrapper::_callbackFunc != nullptr");
+		(*SdkWrapper::_callbackFunc)(user_data, type, size, ev);
+	}*/
+}
+
+unsigned short SdkWrapper::UnregisterEventCallback()
 {
     LOAD_FUNCTION_PTR( fpNvtlCommon_UnregisterEventCallback, Func_NvtlCommon_UnregisterEventCallback, "NvtlCommon_UnregisterEventCallback", m_hDll );
 	
-	return fpNvtlCommon_UnregisterEventCallback(m_session, cb);
+	return fpNvtlCommon_UnregisterEventCallback(m_session, _cb);
 }
+
 unsigned short SdkWrapper::GetDeviceInfo( DeviceInfoStruct* pDevInfo )
 {
     LOAD_FUNCTION_PTR( fpNvtlCommon_GetDeviceInfo, Func_NvtlCommon_GetDeviceInfo, "NvtlCommon_GetDeviceInfo", m_hDll );
