@@ -217,7 +217,9 @@ namespace NvtlApiWrapper
 		unsigned long getSignalStrenght();		
 		unsigned long getDeviceError();
 		bool getIsDeviceAttached();
-		bool IsOK();
+		bool IsDeviceOK();
+		bool IsApiLoaded();
+		bool IsInitialized();
 
 	private:
 		DeviceDataReceivedDelegate^ _deviceDataReceivedDelegate;

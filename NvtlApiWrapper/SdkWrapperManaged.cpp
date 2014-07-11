@@ -48,9 +48,14 @@ bool NvtlApiWrapper::ApiWrapper::Init()
 
 	short rval = _sdk->CreateSession();
 
-	rval = _sdk->RegisterEventCallback();
+	rval = _sdk->RegisterEventCallback();	
 
 	return true;
+}
+
+bool NvtlApiWrapper::ApiWrapper::IsInitialized()
+{
+	return _sdk->HasValidSession();;
 }
 
 array<NvtlApiWrapper::DeviceDetailManaged^>^ NvtlApiWrapper::ApiWrapper::GetAvailableDevices()
@@ -92,9 +97,14 @@ bool NvtlApiWrapper::ApiWrapper::getIsDeviceAttached()
 	return _sdk->IsDeviceAttached;
 }
 
-bool NvtlApiWrapper::ApiWrapper::IsOK()
+bool NvtlApiWrapper::ApiWrapper::IsDeviceOK()
 {
 	return _sdk->IsDeviceAttached && _sdk->DeviceError == 0;
+}
+
+bool NvtlApiWrapper::ApiWrapper::IsApiLoaded()
+{
+	return _sdk->IsLoaded();
 }
 
 void NvtlApiWrapper::ApiWrapper::DetachDevice()
