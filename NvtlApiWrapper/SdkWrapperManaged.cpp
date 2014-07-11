@@ -87,14 +87,14 @@ unsigned long NvtlApiWrapper::ApiWrapper::getDeviceError()
 {
 	return _sdk->DeviceError;
 }
-unsigned long NvtlApiWrapper::ApiWrapper::getAttachedDevicesCount()
+bool NvtlApiWrapper::ApiWrapper::getIsDeviceAttached()
 {
-	return _sdk->AttachedDevicesCount;
+	return _sdk->IsDeviceAttached;
 }
 
 bool NvtlApiWrapper::ApiWrapper::IsOK()
 {
-	return _sdk->AttachedDevicesCount > 0 && _sdk->DeviceError == 0;
+	return _sdk->IsDeviceAttached && _sdk->DeviceError == 0;
 }
 
 void NvtlApiWrapper::ApiWrapper::DetachDevice()

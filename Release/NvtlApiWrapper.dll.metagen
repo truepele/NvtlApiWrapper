@@ -35,7 +35,7 @@ Class NvtlApiWrapper.ApiWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFie
     GetAvailableDevices(): PrivateScope, Public, HideBySig
     getSignalStrenght(): PrivateScope, Public, HideBySig
     getDeviceError(): PrivateScope, Public, HideBySig
-    getAttachedDevicesCount(): PrivateScope, Public, HideBySig
+    getIsDeviceAttached(): PrivateScope, Public, HideBySig
     IsOK(): PrivateScope, Public, HideBySig
     Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
 Class NvtlApiWrapper.ApiWrapper+EventHandlerDelegate: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit

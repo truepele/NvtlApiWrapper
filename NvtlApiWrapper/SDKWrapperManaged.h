@@ -216,20 +216,17 @@ namespace NvtlApiWrapper
 		array<DeviceDetailManaged^>^ GetAvailableDevices();
 		unsigned long getSignalStrenght();		
 		unsigned long getDeviceError();
-		unsigned long getAttachedDevicesCount();
+		bool getIsDeviceAttached();
 		bool IsOK();
 
 	private:
 		DeviceDataReceivedDelegate^ _deviceDataReceivedDelegate;
 
-		SdkWrapper *_sdk;
-		NvtlEventCallback	*_cb;
-		DeviceInfoStruct	*_device_info;
-		NetworkInfoStruct	*_network_info;
+		SdkWrapper *_sdk;		
+		//DeviceInfoStruct	*_device_info;
+		//NetworkInfoStruct	*_network_info;
 		DeviceDetail	*_device_list;
-		unsigned long* _devlistSize;
-		EventHandlerDelegate^ _eventHandlerDelegate;
-		System::IntPtr _pUnmanagedEventHandler;		
+		unsigned long *_devlistSize;
 
 	};
 }

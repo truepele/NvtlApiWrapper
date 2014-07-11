@@ -381,19 +381,17 @@ unsigned short SdkWrapper::RegisterEventCallback()
 										 For example the deivce was removed while in use.  The handler event receives a pointer to a DeviceErrorEvent struct.
 										 Use this event as an indication of a plug-n-play removal of a device that is currently being used by the SDK.*/
 		obj->DeviceError = ((StandardEvent*)ev)->val;
-		obj->AttachedDevicesCount = 0;
+		obj->IsDeviceAttached = false;
 		break;
 	case NW_EVENT_SIG_STR:/*!< The signal strength has changed.  The handler event receives a pointer to a SigStrEvent struct */
 		obj->SignalStrenght = ((StandardEvent*)ev)->val;
 		break;
 	case NW_EVENT_DEVICE_ATTACHED:       /*!< The current session has succesfully attached to a device   */		
-		obj->AttachedDevicesCount++;
-		printf("NW_EVENT_DEVICE_ATTACHED %d %d", ((StandardEvent*)ev)->val, obj->AttachedDevicesCount);
+		obj->IsDeviceAttached = true;		
 		obj->DeviceError = 0;
 		break;
 	case NW_EVENT_DEVICE_DETACHED:       /*!< The current session has succesfully detached from a device */
-		obj->AttachedDevicesCount--;
-		printf("NW_EVENT_DEVICE_DETACHED %d %d", ((StandardEvent*)ev)->val, obj->AttachedDevicesCount);
+		obj->IsDeviceAttached = false;		
 		break;
 	case NW_EVENT_ROAMING:               /*!< The roaming status has changed.   The handler event receives a pointer to a RoamingEvent struct */
 		break;

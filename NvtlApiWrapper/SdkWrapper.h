@@ -282,7 +282,7 @@ class SdkWrapper
         SdkHandle	m_session;
 		unsigned long SignalStrenght = 0;
 		unsigned long DeviceError = 0;
-		unsigned long AttachedDevicesCount = 0;
+		bool IsDeviceAttached = false;
 
 	private:
 		OBJECT_TYPE	m_hDll;

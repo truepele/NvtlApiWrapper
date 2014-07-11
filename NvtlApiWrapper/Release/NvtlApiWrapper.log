@@ -1,4 +1,4 @@
-﻿Build started 7/10/2014 7:29:17 PM.
+﻿Build started 7/11/2014 2:55:52 PM.
      1>Project "C:\Projects\pele\NvtlApiWrapper\NvtlApiWrapper\NvtlApiWrapper.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Release\NvtlApiWrapper.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib Stdafx.cpp
@@ -25,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.07
+Time Elapsed 00:00:02.53
